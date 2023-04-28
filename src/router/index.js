@@ -2,7 +2,21 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
+    alias: '/order',
+    redirect: '/order/main',
     component: () => import('@/order/LayoutPage.vue'),
+    children: [
+      {
+        path: 'main',
+        name: 'main',
+        component: () => import('@/order/views/main/IndexPage.vue'),
+      },
+      {
+        path: 'list',
+        name: 'list',
+        component: () => import('@/order/views/list/IndexPage.vue'),
+      },
+    ],
   },
   {
     path: '/login',

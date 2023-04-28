@@ -27,4 +27,6 @@
 export default {};
 </script>
 
-<style lang="postcss" scoped></style>
+<style lang="postcss" scoped>
+@import '@/style/admin/common/header.css';
+</style>

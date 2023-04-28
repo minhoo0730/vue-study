@@ -1,0 +1,11 @@
+#header{
+  width:100%;
+  @apply p-[10px];
+  @apply bg-white shadow-sm;
+  .header-area{
+    @apply flex flex-row items-center justify-center;
+    .nav ul{
+      @apply flex flex-row;
+    }
+  }
+}

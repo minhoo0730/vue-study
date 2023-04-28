@@ -1,7 +1,5 @@
 <template>
-  <div id="content">
-    <router-view></router-view>
-  </div>
+  <div>메뉴리스트 페이지</div>
 </template>
 
 <script>
