@@ -1,11 +1,15 @@
 #header{
-  width:100%;
-  @apply p-[10px];
-  @apply bg-white shadow-sm;
+  @apply bg-white shadow-sm px-20 py-10 fixed w-screen h-60 flex top-0;
   .header-area{
-    @apply flex flex-row items-center justify-center;
+    @apply flex flex-row items-center justify-between w-[100%];
     .nav ul{
       @apply flex flex-row;
+      li{@apply mx-6}
+    }
+    .user-area{
+      button{
+        @apply text-4xl mx-8 first:ml-0 last:mr-0
+      }
     }
   }
 }
