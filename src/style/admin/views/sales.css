@@ -1,0 +1,33 @@
+.sales-title{
+  @apply text-4xl mt-32 mb-16 leading-snug;
+  span{
+    @apply w-[100%] font-bold block;
+  }
+}
+.sales-result{
+  @apply flex flex-row flex-wrap;
+  > button{
+    @apply text-2xl;
+  }
+  > div{
+    @apply flex flex-row w-[100%];
+    button {
+      @apply bg-[#2a3f74] text-white text-2xl px-16 py-8 rounded-lg first:mr-6;
+    }
+  }
+  .sales-inquiry{
+    @apply bg-white rounded-lg shadow-sm border-1 border-gray-200 p-16 flex items-center justify-start mb-16;
+    > div{
+      @apply border-r border-gray-100 flex flex-col justify-center w-1/2;
+      p .yesterday-date{
+        @apply ml-6 text-gray-400
+      }
+      .amount{
+        @apply font-bold text-4xl mt-6;
+      }
+      &:last-child{
+        @apply px-16 border-none;
+      }
+    }
+  }
+}
