@@ -1,10 +1,21 @@
 #header{
   @apply bg-white shadow-sm px-20 py-10 fixed w-screen h-60 flex top-0;
   .header-area{
-    @apply flex flex-row items-center justify-between w-[100%];
+    @apply flex flex-row items-center justify-between w-full;
     .nav ul{
       @apply flex flex-row;
-      li{@apply mx-6}
+      li{
+        @apply mr-2;
+        > a{
+          @apply flex flex-col items-center justify-center text-[1.2rem] w-56 h-56 rounded-lg hover:bg-gray-100;
+          i{
+            @apply text-3xl mb-2;
+          }
+        }
+        .router-link-active, .router-link-exact-active{
+          @apply text-[#648fdb] bg-gray-100;
+        }
+      }
     }
     .user-area{
       button{

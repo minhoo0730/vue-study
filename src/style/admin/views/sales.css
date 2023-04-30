@@ -1,32 +1,91 @@
 .sales-title{
-  @apply text-4xl mt-32 mb-16 leading-snug;
+  @apply text-4xl mt-28 mb-14 leading-snug;
   span{
-    @apply w-[100%] font-bold block;
+    @apply w-full font-bold block;
   }
 }
 .sales-result{
-  @apply flex flex-row flex-wrap;
+  @apply flex flex-row flex-nowrap;
   > button{
     @apply text-2xl;
   }
   > div{
-    @apply flex flex-row w-[100%];
+    @apply flex flex-row w-1/3 shadow-sm bg-white rounded-lg border-1 border-gray-200 p-16 items-center justify-start ml-16 first:ml-0;
+    small.use{
+      @apply font-normal text-2xl ml-4;
+    }
     button {
       @apply bg-[#2a3f74] text-white text-2xl px-16 py-8 rounded-lg first:mr-6;
     }
   }
-  .sales-inquiry{
-    @apply bg-white rounded-lg shadow-sm border-1 border-gray-200 p-16 flex items-center justify-start mb-16;
+  div.total-inquiry, div.order-total{
     > div{
       @apply border-r border-gray-100 flex flex-col justify-center w-1/2;
       p .yesterday-date{
         @apply ml-6 text-gray-400
       }
       .amount{
-        @apply font-bold text-4xl mt-6;
+        @apply font-bold text-5xl mt-10 text-[#648fdb];
       }
       &:last-child{
         @apply px-16 border-none;
+      }
+    }
+    > div.yesterday .amount{
+      @apply text-[#111]
+    }
+  }
+  div.detail-store{
+    > div{
+      @apply flex flex-row items-center justify-between w-full;
+      > div {
+        @apply ml-10;
+        > p{
+          @apply mb-6;
+          .use{
+            @apply ml-6 font-bold text-4xl mr-6 text-[#111];
+          }
+          &:last-child{
+            @apply mb-0;
+            .use{
+              @apply text-[#648fdb]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.detail-inquiry{
+  ul {
+    @apply flex border-1 rounded-lg mt-32 mb-14 w-1/6;
+    li{
+      @apply flex w-1/4 items-center justify-center border-r-1 last:border-none;
+      button{
+        @apply w-full py-6 text-[1.4rem];
+      }
+    }
+  }
+}
+
+.inquiry-result > div{
+  @apply mt-16 mb-16 border-1 rounded-xl;
+  > table{
+    @apply w-full text-left;
+    thead th{
+      @apply font-black bg-gray-50 py-12 px-16 border-b-1;
+    }
+    tbody tr{
+      @apply border-b-1 last:border-none;
+      td{
+        @apply py-10 px-16 font-normal;
+        .detail-btn{
+          > i{
+            @apply mr-2;
+          }
+          @apply bg-green-100 border-1 border-green-300 py-4 px-8 rounded-md text-[1.4rem] text-green-600 font-bold;
+        }
       }
     }
   }

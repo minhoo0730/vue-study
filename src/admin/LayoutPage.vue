@@ -4,10 +4,30 @@
       <div class="logo"><a href="/admin">LOGO</a></div>
       <nav class="nav">
         <ul>
-          <li><router-link to="/admin/orders">주문관리</router-link></li>
-          <li><router-link to="/admin/sales">매출관리</router-link></li>
-          <li><router-link to="/admin/menus">메뉴관리</router-link></li>
-          <li><router-link to="/admin/users">사용자관리</router-link></li>
+          <li>
+            <router-link to="/admin/orders">
+              <i class="ri-todo-line"></i>
+              주문관리
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/admin/sales">
+              <i class="ri-cash-line"></i>
+              매출관리
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/admin/menus">
+              <i class="ri-restaurant-line"></i>
+              메뉴관리
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/admin/users">
+              <i class="ri-user-line"></i>
+              직원관리
+            </router-link>
+          </li>
         </ul>
       </nav>
       <div class="user-area">

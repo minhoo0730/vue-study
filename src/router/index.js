@@ -8,12 +8,12 @@ const routes = [
     children: [
       {
         path: 'main',
-        name: 'main',
+        name: '메인',
         component: () => import('@/order/views/main/IndexPage.vue'),
       },
       {
         path: 'list',
-        name: 'list',
+        name: '주문하기',
         component: () => import('@/order/views/list/IndexPage.vue'),
       },
     ],
@@ -29,22 +29,22 @@ const routes = [
     children: [
       {
         path: 'sales',
-        name: 'sales',
+        name: '매출관리',
         component: () => import('@/admin/views/sales/IndexPage.vue'),
       },
       {
         path: 'menus',
-        name: 'menus',
+        name: '메뉴관리',
         component: () => import('@/admin/views/menus/IndexPage.vue'),
       },
       {
         path: 'users',
-        name: 'users',
+        name: '직원관리',
         component: () => import('@/admin/views/users/IndexPage.vue'),
       },
       {
         path: 'orders',
-        name: 'orders',
+        name: '주문관리',
         component: () => import('@/admin/views/orders/IndexPage.vue'),
       },
     ],
