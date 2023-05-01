@@ -43,72 +43,25 @@
         </div>
       </div>
       <div class="detail-inquiry">
-        <ul>
-          <li><button>일</button></li>
-          <li><button>월</button></li>
-          <li><button>분기</button></li>
-          <li><button>날짜</button></li>
+        <ul class="tab-menu">
+          <li><button class="btn tab-btn">일</button></li>
+          <li><button class="btn tab-btn">월</button></li>
+          <li><button class="btn tab-btn">분기</button></li>
+          <li><button class="btn tab-btn">날짜</button></li>
         </ul>
-        <div class="inquiry-result">
-          <div class="day-result">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col">주문번호</th>
-                  <th scope="col">주문시간</th>
-                  <th scope="col">주문금액</th>
-                  <th scope="col">카드명</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>0001</td>
-                  <td>2023.04.30 09:00</td>
-                  <td>35,000원</td>
-                  <td>현대</td>
-                  <td class="text-center">
-                    <button class="detail-btn">
-                      <i class="ri-list-unordered"></i>
-                      상세정보
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>0002</td>
-                  <td>2023.04.30 09:00</td>
-                  <td>35,000원</td>
-                  <td>현대</td>
-                  <td class="text-center">
-                    <button class="detail-btn">
-                      <i class="ri-list-unordered"></i>
-                      상세정보
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>0003</td>
-                  <td>2023.04.30 09:00</td>
-                  <td>35,000원</td>
-                  <td>현대</td>
-                  <td class="text-center">
-                    <button class="detail-btn">
-                      <i class="ri-list-unordered"></i>
-                      상세정보
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <calendar-view></calendar-view>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import CalendarView from '@/admin/components/CalendarView.vue';
+export default {
+  components: {
+    CalendarView,
+  },
+};
 </script>
 
 <style lang="postcss" scoped>

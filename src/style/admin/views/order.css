@@ -1,0 +1,21 @@
+.inquiry-result > div{
+  @apply mt-16 mb-16 border-1 rounded-xl;
+  > table{
+    @apply w-full text-left;
+    thead th{
+      @apply font-black bg-gray-50 py-10 px-16 border-b-1;
+    }
+    tbody tr{
+      @apply border-b-1 last:border-none;
+      td{
+        @apply py-10 px-16 font-normal;
+        .detail-btn{
+          > i{
+            @apply mr-2;
+          }
+          @apply bg-green-100 border-1 border-green-300 py-4 px-8 rounded-md text-[1.4rem] text-green-600 font-bold;
+        }
+      }
+    }
+  }
+}
