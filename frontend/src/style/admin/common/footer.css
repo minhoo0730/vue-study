@@ -1,0 +1,6 @@
+#footer{
+  @apply fixed w-screen text-center border-t border-gray-100 p-10 bottom-0 bg-white;
+  p{
+    @apply text-xl text-gray-300 font-normal;
+  }
+}

@@ -1,5 +1,0 @@
-.calendar{
-  > div{
-    @apply grid grid-cols-7;
-  }
-}

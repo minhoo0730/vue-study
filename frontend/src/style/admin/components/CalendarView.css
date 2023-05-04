@@ -1,0 +1,36 @@
+.calendar{
+  @apply border-1 border-gray-200 mb-70;
+  > div{
+    @apply grid grid-cols-7 border-gray-200 border-b-1 h-110;
+    &:last-child{
+      @apply border-0;
+    }
+    > span{
+      @apply text-center border-r-1 border-gray-200 h-full p-12 ;
+      &:last-child{
+        @apply border-r-0;
+      }
+    }
+    .day-date{
+      @apply text-left font-light text-[1.4rem];
+    }
+    .sat{
+      @apply text-blue-600;
+    }
+    .sun{
+      @apply text-red-600;
+    }
+    .prev-day{
+      @apply bg-gray-100;
+    }
+    .today{
+      @apply bg-blue-700 text-white;
+    }
+  }
+  .calendar-day{
+    @apply h-auto content-center;
+    .day-name{
+      @apply font-bold py-12;
+    }
+  }
+}
