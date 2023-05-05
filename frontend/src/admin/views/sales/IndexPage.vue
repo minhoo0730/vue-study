@@ -34,7 +34,7 @@
         </div>
         <div class="detail-store">
           <div class="store-card">
-            <p>매장 카드결제</p>
+            <p>매장<br />카드결제</p>
             <div>
               <p>어제 매출 <small class="use">870,000</small>원</p>
               <p>현재 매출 <small class="use">62,000</small>원</p>

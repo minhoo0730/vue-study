@@ -11,13 +11,13 @@
       </span>
     </div>
     <div class="week-date" v-for="(week, weekIdx) in dates" :key="weekIdx">
-      <span
+      <div
         v-for="(day, dayIdx) in week"
         :key="dayIdx"
         :class="[
           weekendColor(dayIdx),
           {
-            'prev-day':
+            'disable-day':
               (weekIdx === 0 && day >= lastMonthStart) ||
               (dates.length - 1 === weekIdx && nextMonthStart > day),
           },
@@ -25,15 +25,18 @@
             'has-text-primary':
               day === today && month === currentMonth && year === currentYear,
           },
+          {
+            today:
+              year === currentYear && month === currentMonth && day === today,
+          },
         ]"
         class="day-date"
       >
-        <!-- {{ day === today && month === currentMonth && year === currentYear }} -->
-
-        {{ year }} {{ month }} {{ day }}
-        <!-- {{ `${day}-${month}-${year}` }} -->
-        <!-- {{ `${today}-${currentMonth}-${currentYear}` }} -->
-      </span>
+        <time :data-time="`${year}-${month}-${day}`">{{ day }}</time>
+        <div class="sales-data">
+          <p><span class="day-use">40,000</span>원</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -55,14 +58,14 @@ export default {
     const date = new Date();
     const dates = ref([]);
     let today = ref(date.getDate());
-    let year = ref(0);
-    let month = ref(0);
+    let year = ref(0).value;
+    let month = ref(0).value;
     let currentYear = ref(date.getFullYear());
     let currentMonth = ref(date.getMonth() + 1);
     let lastMonthStart = ref(0);
     let nextMonthStart = ref(0);
-    year.value = currentYear;
-    month.value = currentMonth;
+    year = currentYear.value;
+    month = currentMonth.value;
     // 함수
     const calendarData = () => {
       const [monthFirstDay, monthLastDate, lastMonthLastDate] =

@@ -1,18 +1,33 @@
 .calendar{
-  @apply border-1 border-gray-200 mb-70;
+  @apply border-1 border-gray-200 mb-70 rounded-lg;
   > div{
     @apply grid grid-cols-7 border-gray-200 border-b-1 h-110;
     &:last-child{
       @apply border-0;
     }
-    > span{
-      @apply text-center border-r-1 border-gray-200 h-full p-12 ;
+    > div{
+      @apply text-center border-r-1 border-gray-200 h-full p-12 relative;
+      time{
+        @apply rounded-full w-26 h-26 text-center flex items-center justify-center pr-2 absolute left-12 top-12;
+      }
+      p{
+        @apply font-normal;
+        .day-use{
+          @apply font-bold mr-2
+        }
+      }
       &:last-child{
         @apply border-r-0;
       }
     }
     .day-date{
-      @apply text-left font-light text-[1.4rem];
+      @apply text-left font-light text-[1.4rem] cursor-pointer flex;
+      &:hover, &:focus{
+        @apply bg-gray-50;
+      }
+      .sales-data{
+        @apply flex w-full justify-end items-end;
+      }
     }
     .sat{
       @apply text-blue-600;
@@ -20,17 +35,20 @@
     .sun{
       @apply text-red-600;
     }
-    .prev-day{
-      @apply bg-gray-100;
+    .disable-day{
+      @apply bg-[rgba(107,114,128,.1)] text-[rgb(107,114,128)];
     }
-    .today{
-      @apply bg-blue-700 text-white;
+    .today time{
+      @apply text-white bg-[#4f46e5] font-bold absolute;
     }
   }
   .calendar-day{
-    @apply h-auto content-center;
+    @apply h-auto content-center shadow-sm;
     .day-name{
-      @apply font-bold py-12;
+      @apply font-bold py-12 text-center border-r-1;
+      &:last-child{
+        @apply border-r-0;
+      }
     }
   }
 }
