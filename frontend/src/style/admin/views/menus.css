@@ -1,0 +1,56 @@
+.product-top{
+  @apply mt-16 mb-12 flex justify-between items-end;
+  > .product-top-btn{
+    button{
+      @apply text-[1.4rem] border px-16 py-8 rounded-lg;
+    }
+    .p-add-btn{
+      @apply bg-blue-500 text-white border-none;
+    }
+  }
+}
+.product{
+  @apply flex flex-row w-full flex-wrap;
+  .product-list{
+    @apply w-[calc(25%-18px)] border-gray-200 border rounded-xl mx-12 p-16 mb-24 flex flex-col;
+    &:nth-child(4n+1){
+      @apply ml-0;
+    }
+    &:nth-child(4n){
+      @apply mr-0;
+    }
+    .p-area{
+      @apply flex;
+      .p-image{
+        @apply flex justify-center items-center rounded-xl overflow-hidden w-100 h-100;
+        > p{
+          @apply flex justify-center items-center bg-gray-100 w-full h-full;
+        }
+      }
+      .p-detail{
+        @apply flex flex-col justify-center items-start pl-16;
+        > h4{
+          @apply text-[1.8rem] font-bold; 
+        }
+        .p-comment{
+          @apply mt-2 text-gray-400 text-[1.4rem];
+        }
+        .sales-use{
+          @apply mt-12;
+        }
+      }
+    }
+    .p-button{
+      @apply w-full text-right mt-8;
+      button{
+        @apply text-[1.4rem] mr-4 py-4 px-8 font-medium last:mr-0;
+        &.modify-btn{
+          @apply text-blue-600;
+        }
+        &.delete-btn{
+          @apply text-gray-400;
+        }
+      }
+    }
+  }
+}

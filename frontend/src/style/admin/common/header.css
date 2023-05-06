@@ -1,5 +1,5 @@
 #header{
-  @apply bg-white shadow-md px-20 py-10 fixed w-screen h-60 flex top-0;
+  @apply bg-white shadow-md px-40 py-10 fixed w-screen h-60 flex top-0;
   .header-area{
     @apply flex flex-row items-center justify-between w-full;
     .nav ul{

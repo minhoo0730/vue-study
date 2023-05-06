@@ -1,5 +1,5 @@
 .calendar{
-  @apply border-1 border-gray-200 mb-70 rounded-lg;
+  @apply border-1 border-gray-200 rounded-lg;
   > div{
     @apply grid grid-cols-7 border-gray-200 border-b-1 h-110;
     &:last-child{
@@ -9,12 +9,6 @@
       @apply text-center border-r-1 border-gray-200 h-full p-12 relative;
       time{
         @apply rounded-full w-26 h-26 text-center flex items-center justify-center pr-2 absolute left-12 top-12;
-      }
-      p{
-        @apply font-normal;
-        .day-use{
-          @apply font-bold mr-2
-        }
       }
       &:last-child{
         @apply border-r-0;

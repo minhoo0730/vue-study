@@ -1,9 +1,3 @@
-.sales-title{
-  @apply text-4xl mt-28 mb-14 leading-snug;
-  span{
-    @apply w-full font-bold block;
-  }
-}
 .sales-result{
   @apply flex flex-row flex-nowrap;
   > button{
@@ -11,7 +5,7 @@
   }
   > div{
     @apply flex flex-row w-1/3 shadow-sm bg-white rounded-lg border-1 border-gray-200 p-16 items-center justify-start ml-16 first:ml-0;
-    small.use{
+    small.total-use{
       @apply font-normal text-2xl ml-4;
     }
     button {
@@ -42,7 +36,7 @@
         @apply ml-10;
         > p{
           @apply mb-6;
-          .use{
+          .total-use{
             @apply ml-6 font-bold text-4xl mr-6 text-[#111];
           }
           &:last-child{
@@ -55,4 +49,7 @@
       }
     }
   }
+}
+.detail-inquiry{
+  @apply mb-70
 }

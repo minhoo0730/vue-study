@@ -49,6 +49,5 @@ export default {};
 
 <style lang="postcss" scoped>
 @import '@/style/admin/common/header.css';
-@import '@/style/admin/common/content.css';
 @import '@/style/admin/common/footer.css';
 </style>

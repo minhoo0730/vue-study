@@ -34,7 +34,7 @@
       >
         <time :data-time="`${year}-${month}-${day}`">{{ day }}</time>
         <div class="sales-data">
-          <p><span class="day-use">40,000</span>원</p>
+          <p class="sales-use"><span class="use">40,000</span>원</p>
         </div>
       </div>
     </div>
