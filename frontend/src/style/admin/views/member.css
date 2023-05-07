@@ -1,0 +1,60 @@
+.member-top{
+  @apply mt-16 mb-12 flex justify-end items-end;
+  > .member-top-btn{
+    .add-btn{
+      @apply bg-blue-500 text-white border-none py-10;
+    }
+  }
+}
+.member{
+  @apply flex;
+  > div{
+    @apply p-16 bg-white rounded-xl border ;
+  }
+  .member-role{
+    @apply flex flex-col w-[20%] items-start;
+    > h4{
+      @apply font-bold text-blue-500 text-[1.4rem] pt-8;
+    }
+    > div{
+      @apply mt-16;
+      .member-btn{
+        @apply w-full text-left border-none !text-[1.6rem] py-10 mb-6;
+        &:hover{
+          @apply text-[#6691db] bg-[#f9fafb] font-medium;
+        }
+      }
+    }
+  }
+  .member-area{
+    @apply w-[80%] ml-16;
+    .count b{
+      @apply ml-4 mr-2;
+    }
+    .search{
+      @apply flex justify-between items-center mb-16;
+      > div{
+      }
+    }
+    .member-list{
+      > div{
+        @apply flex w-full justify-between;
+        .table-label{
+          @apply w-1/4
+        }
+      }
+      .table-header{
+        @apply px-14 py-8 border-b-1 border-gray-300;
+        h2{
+          @apply font-bold;
+        }
+      }
+      .table-content{
+        @apply px-14 py-12 rounded-xl cursor-pointer border-b-1 border-gray-100;
+        &:hover{
+          @apply bg-[#f9fafb];
+        }
+      }
+    }
+  }
+}
