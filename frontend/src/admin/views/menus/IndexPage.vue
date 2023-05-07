@@ -1,14 +1,14 @@
 <template>
   <div id="container">
-    <div id="content">
+    <div id="content" class="full-view-page">
       <h2 class="content-title">
-        <span>메뉴목록</span>
+        <span>메뉴관리</span>
       </h2>
       <div class="product-view">
         <div class="product-top">
           <h4 class="content-sub-title">등록된 메뉴</h4>
           <div class="product-top-btn">
-            <button class="btn p-add-btn">메뉴추가</button>
+            <button class="btn add-btn">메뉴추가</button>
           </div>
         </div>
         <div class="product">
@@ -18,8 +18,9 @@
                 <p>메뉴이미지</p>
               </div>
               <div class="p-detail">
-                <h4 class="">떡갈비 철판볶음밥</h4>
+                <h4>떡갈비 철판볶음밥</h4>
                 <p class="p-comment">메뉴 설명</p>
+                <p class="categore">메인메뉴</p>
                 <p class="sales-use"><span class="use">10,000</span>원</p>
               </div>
             </div>

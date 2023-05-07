@@ -7,25 +7,25 @@
           <li>
             <router-link to="/admin/orders">
               <i class="ri-todo-line"></i>
-              주문관리
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/admin/sales">
-              <i class="ri-cash-line"></i>
-              매출관리
+              주문
             </router-link>
           </li>
           <li>
             <router-link to="/admin/menus">
               <i class="ri-restaurant-line"></i>
-              메뉴관리
+              메뉴
             </router-link>
           </li>
           <li>
-            <router-link to="/admin/users">
+            <router-link to="/admin/sales">
+              <i class="ri-cash-line"></i>
+              매출
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/admin/member">
               <i class="ri-user-line"></i>
-              직원관리
+              멤버
             </router-link>
           </li>
         </ul>

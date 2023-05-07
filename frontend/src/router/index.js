@@ -38,9 +38,9 @@ const routes = [
         component: () => import('@/admin/views/menus/IndexPage.vue'),
       },
       {
-        path: 'users',
+        path: 'member',
         name: '직원관리',
-        component: () => import('@/admin/views/users/IndexPage.vue'),
+        component: () => import('@/admin/views/member/IndexPage.vue'),
       },
       {
         path: 'orders',

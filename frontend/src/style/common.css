@@ -1,34 +1,52 @@
 /* 공통으로 사용될 컴포넌트 스타일 */
+/* 버튼 공통화 */
+
 
 /* 컨텐츠 영역(관리자 페이지) */
 #container{
   @apply pt-60 pb-20 px-40;
-  .content-title{
-    @apply text-[2.4rem] mt-28 mb-14 leading-snug;
-    span{
-      @apply w-full font-bold block;
+  #content{
+    @apply max-w-screen-xl m-auto;
+    .content-title{
+      @apply text-[2.4rem] mt-28 mb-14 leading-snug;
+      span{
+        @apply w-full font-bold block;
+      }
     }
-  }
-  .content-sub-title{
-    @apply text-[1.6rem];
-  }
+    .content-sub-title{
+      @apply text-[1.6rem];
+    }
 
-  /* 금액 단위 표시 스타일링 */
-  p.sales-use{
-    @apply font-normal;
-    .use{
-      @apply font-bold mr-2
+    /* 금액 단위 표시 스타일링 */
+    p.sales-use{
+      @apply font-normal;
+      .use{
+        @apply font-bold mr-2
+      }
+    }
+    &.full-view-page{
+      @apply max-w-full;
+    }
+
+    /* 컨턴츠 내부 버튼 공통화 */
+    button{
+      @apply text-[1.4rem] border px-16 rounded-xl;
+    }
+    input{
+      @apply rounded-xl px-12 py-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 text-[1.4rem];
+      &:focus{
+        @apply ring-2 ring-inset ring-blue-500;
+      }
     }
   }
 }
-
 /* 탭메뉴 공통 */
 ul.tab-menu{
-  @apply flex border-1 rounded-lg mb-26 w-1/6;
+  @apply flex border-1 rounded-lg mb-26 w-1/4 bg-white;
   li{
     @apply flex w-1/4 items-center justify-center border-r-1 last:border-none;
     button{
-      @apply w-full py-6 text-[1.4rem];
+      @apply w-full py-6 text-[1.4rem] rounded-none border-none;
     }
   }
 }
