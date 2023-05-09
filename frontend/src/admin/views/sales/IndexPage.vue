@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="container" class="admin">
     <!-- 메뉴 타이틀 등으로 사용 -->
     <div id="content">
       <h4 class="content-title">

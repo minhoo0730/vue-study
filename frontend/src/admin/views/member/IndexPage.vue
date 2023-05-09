@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="container" class="admin">
     <div id="content">
       <h2 class="content-title">
         <span>멤버관리</span>

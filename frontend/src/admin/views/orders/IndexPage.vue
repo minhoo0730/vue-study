@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div id="container" class="admin">
     <div id="content" class="full-view-page">
       <h2 class="content-title">
         <span>주문관리</span>

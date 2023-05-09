@@ -1,0 +1,51 @@
+#content{
+  @apply flex h-full;
+  .order-area{
+    @apply flex flex-col w-[75%] border-r-1;
+    .order-header{
+      @apply flex justify-between items-center border-b-1 px-16 py-8;
+      .logo{
+        @apply w-[15%] h-full flex justify-center items-center;
+      }
+      .nav{
+        @apply flex items-center w-[85%];
+        > ul{
+          @apply flex justify-start items-center px-20 w-full;
+          li{
+            @apply text-center w-1/5 rounded-full;
+            button{
+              @apply w-full py-8;
+            }
+            &:hover{
+              @apply bg-gray-100 text-blue-600 font-bold;
+            }
+          }
+        }
+      }
+    }
+    .menu-list{
+      @apply p-16 flex flex-wrap;
+      .list{
+        @apply w-1/4 pr-16 pb-16;
+        &:nth-child(4n){
+          @apply pr-0;
+        }
+        .menu{
+          @apply rounded-xl overflow-hidden border-1 h-full cursor-pointer;
+          .img{
+            @apply h-140 overflow-hidden;
+          }
+          .menu-info{
+            @apply items-center justify-center px-16 py-8;
+            .menu-name{
+              @apply mb-4 text-[1.8rem];
+            }
+          }
+        }
+      }
+    }
+  }
+  .my-order{
+    @apply w-[25%] p-16;
+  }
+}

@@ -1,0 +1,12 @@
+.main-view{
+  @apply w-full h-full flex flex-col justify-center items-center pb-42;
+  .visual-img{
+    @apply w-full h-[80%] flex justify-center items-center border-b-1;
+  }
+  .slogan{
+    @apply w-full h-[20%] flex justify-center items-center bg-[rgb(79,70,229)] text-white;
+    h2{
+      @apply text-[2.4rem] font-bold;
+    }
+  }
+}
