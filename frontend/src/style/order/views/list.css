@@ -1,9 +1,9 @@
 #content{
   @apply flex h-full;
   .order-area{
-    @apply flex flex-col w-[75%] border-r-1;
+    @apply flex flex-col w-[75%] border-r-1 relative;
     .order-header{
-      @apply flex justify-between items-center border-b-1 px-16 py-8;
+      @apply flex justify-between items-center px-16 py-16 sticky left-0 top-0 bg-white shadow-md;
       .logo{
         @apply w-[15%] h-full flex justify-center items-center;
       }
@@ -24,21 +24,57 @@
       }
     }
     .menu-list{
-      @apply p-16 flex flex-wrap;
-      .list{
-        @apply w-1/4 pr-16 pb-16;
-        &:nth-child(4n){
-          @apply pr-0;
-        }
-        .menu{
-          @apply rounded-xl overflow-hidden border-1 h-full cursor-pointer;
-          .img{
-            @apply h-140 overflow-hidden;
+      overflow-y:overlay;
+      @apply px-32 pb-16 pt-32 flex flex-wrap h-full;
+      > div{
+        @apply flex flex-col;
+      }
+      .list-area{
+        @apply grid grid-cols-4;
+        /* @apply flex flex-row flex-wrap; */
+        .list{
+          @apply mr-16 mb-16;
+          &:nth-child(4n){
+            @apply mr-0;
           }
-          .menu-info{
-            @apply items-center justify-center px-16 py-8;
-            .menu-name{
-              @apply mb-4 text-[1.8rem];
+          .menu{
+            @apply rounded-xl overflow-hidden border-1 h-full cursor-pointer;
+            .img{
+              @apply min-h-[90px] max-h-[160px] overflow-hidden;
+            }
+            .menu-info{
+              @apply items-center justify-center px-16 py-8;
+              .menu-name{
+                @apply mb-4 text-[1.8rem];
+              }
+            }
+          }
+        }
+      }
+    }
+    .content-footer{
+      @apply flex flex-row flex-wrap justify-between items-center w-full px-32 py-26 bg-white border-t-1;
+      .menu-title{
+        > h2{
+          @apply text-[2.6rem] font-bold;
+        }
+      }
+      .pagination-btn{
+        @apply flex justify-center items-center;
+        > a{
+          @apply flex justify-center items-center w-130 h-60 text-[#111] text-[1.8rem]  font-bold border-1 border-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0;
+          &:first-child{
+            @apply rounded-xl mr-16;
+            > i{
+              margin-right:6px;
+              margin-top:4px
+            }
+          }
+          &:last-child{
+            @apply rounded-xl;
+            > i{
+              margin-left:6px;
+              margin-top:4px;
             }
           }
         }
@@ -46,6 +82,9 @@
     }
   }
   .my-order{
-    @apply w-[25%] p-16;
+    @apply w-[25%];
+    > h2{
+      @apply text-[2.6rem] font-bold;
+    }
   }
 }
