@@ -15,20 +15,36 @@
           </nav>
         </div>
         <div class="menu-list">
-          <div class="list" v-for="(list, idx) in 12" :key="list">
-            <div class="menu">
-              <div class="img">
-                <img src="https://picsum.photos/id/429/4128/2322" />
-              </div>
-              <div class="menu-info">
-                <p class="menu-name">메뉴{{ idx + 1 }}</p>
-                <p class="use"><b>20,000</b>원</p>
+          <div class="list-area">
+            <div class="list" v-for="(list, idx) in 12" :key="list">
+              <div class="menu">
+                <div class="img">
+                  <img src="https://picsum.photos/id/429/4128/2322" />
+                </div>
+                <div class="menu-info">
+                  <p class="menu-name">메뉴{{ idx + 1 }}</p>
+                  <p class="use"><b>20,000</b>원</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="content-footer" aria-label="Pagination">
+          <div class="menu-title">
+            <h2>주문하실 메뉴를 선택하세요.</h2>
+          </div>
+          <div class="pagination-btn">
+            <a href="#" class=""><i class="ri-arrow-left-line"></i>이전 </a>
+            <a href="#" class="">다음<i class="ri-arrow-right-line"></i></a>
+          </div>
+        </div>
       </div>
-      <div class="my-order">오더 내역</div>
+      <div class="my-order">
+        <div class="bg-white h-72 flex justify-start items-center px-16">
+          <h2 class="text-[2.0rem] font-bold">주문내역</h2>
+        </div>
+        <div></div>
+      </div>
     </div>
   </div>
 </template>
