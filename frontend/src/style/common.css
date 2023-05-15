@@ -55,3 +55,46 @@
 #container.order{
   @apply flex flex-col h-full pb-42 bg-white;
 }
+
+/* 모달 공통화 */
+.modal {
+  @apply relative z-10;
+
+  .modal-bg {
+    @apply fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity;
+  }
+
+  .modal-component {
+    @apply fixed inset-0 z-10 overflow-y-auto;
+
+    .modal-container {
+      @apply flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0;
+
+      .modal-area {
+        @apply relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 w-full sm:w-[768px];
+
+        .modal-header {
+          @apply mt-3 text-center p-16 sm:mt-0 sm:text-left border-b-1;
+
+          h3 {
+            font-size: 2rem;
+            font-weight: 600;
+          }
+        }
+        .modal-content {
+          @apply p-16;
+        }
+
+        .modal-footer {
+          @apply bg-gray-50 flex;
+          button{
+            @apply m-0 py-16 w-1/2 rounded-none border-1;
+            &:first-child{
+              border-right:0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

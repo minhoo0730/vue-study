@@ -3,9 +3,9 @@
   .order-area{
     @apply flex flex-col w-[75%] border-r-1 relative;
     .order-header{
-      @apply flex justify-between items-center px-16 py-16 sticky left-0 top-0 bg-white shadow-md;
+      @apply flex justify-between items-center px-16 py-16 sticky left-0 top-0 bg-[#111] shadow-md;
       .logo{
-        @apply w-[15%] h-full flex justify-center items-center;
+        @apply w-[15%] h-full flex justify-center items-center text-white;
       }
       .nav{
         @apply flex items-center w-[85%];
@@ -14,7 +14,7 @@
           li{
             @apply text-center w-1/5 rounded-full;
             button{
-              @apply w-full py-8;
+              @apply w-full py-8 text-white;
             }
             &:hover{
               @apply bg-gray-100 text-blue-600 font-bold;
@@ -33,12 +33,15 @@
         @apply flex flex-row flex-wrap justify-start content-center;
         /* @apply flex flex-row flex-wrap; */
         .list{
-          @apply rounded-xl overflow-hidden border-1 cursor-pointer mb-32 mr-32 w-[calc(20%-26px)];
-          &:nth-child(5n){
+          @apply rounded-xl overflow-hidden border-1 cursor-pointer mb-16 mr-32 w-[calc(25%-26px)];
+          &:nth-child(4n){
             @apply mr-0;
           }
+          &:nth-last-child(-n+4){
+            @apply mb-0;
+          }
           .img{
-            @apply w-full h-[160px] overflow-hidden flex justify-center items-center bg-gray-100;
+            @apply w-full h-[125px] overflow-hidden flex justify-center items-center bg-gray-100;
             > img{
               @apply w-full h-[160px];
             }
@@ -46,14 +49,17 @@
           .menu-info{
             @apply items-center justify-center px-16 py-8;
             .menu-name{
-              @apply mb-4 text-[1.8rem];
+              @apply mb-4 text-[2.0rem] font-normal;
+              small{
+                @apply flex text-gray-400 text-[1.4rem] font-normal;
+              }
             }
           }
         }
       }
     }
     .content-footer{
-      @apply flex flex-row flex-wrap justify-between items-center w-full px-32 py-26 bg-white border-t-1;
+      @apply flex flex-row flex-wrap justify-between  items-center w-full px-32 py-26 bg-white border-t-1;
       .menu-title{
         > h2{
           @apply text-[2.6rem] font-bold;
@@ -83,24 +89,42 @@
   }
   .my-order{
     @apply w-[25%] relative flex flex-col;
-    > h2{
-      @apply text-[2.6rem] font-bold;
+    .order-title{
+      @apply bg-white h-72 flex justify-start items-center p-16 shadow-sm;
+      > h2{
+        @apply text-[2.6rem] font-bold;
+      }
     }
     .order-items{
-      padding:16px; height:100%;
+      padding:16px; height:calc(100vh - 230px); overflow-y:scroll;
       > ul{
         @apply flex flex-col h-full;
         > li{
-          @apply flex justify-between border-b-1 py-12;
+          @apply flex flex-col justify-between border-b-1 py-12;
+          .order-name{
+            @apply flex justify-between;
+            > div button{
+              @apply border-1 w-30;
+            }
+            input[type=number]{
+              @apply w-50 text-center;
+            }
+          }
+          &:last-child{
+            border-bottom:none;
+          }
         }
       }
     }
     .order-button{
-      @apply w-full;
-      > h2{
-        @apply text-[2.4rem] flex justify-end px-16 pb-16 pt-4;
-        > span b{
-          @apply ml-16
+      @apply w-full h-113 border-t-1;
+      .order-count{
+        @apply flex justify-end p-16;
+        > p{
+          @apply text-[2.0rem] flex justify-end ml-16;
+          > span b{
+            @apply ml-16
+          }
         }
       }
       > button{

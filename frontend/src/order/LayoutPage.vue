@@ -1,8 +1,10 @@
 <template>
-  <router-view></router-view>
-  <footer id="footer">
-    <p>© Company Corp. All rights reserved.</p>
-  </footer>
+  <div>
+    <router-view></router-view>
+    <footer id="footer">
+      <p>© Company Corp. All rights reserved.</p>
+    </footer>
+  </div>
 </template>
 
 <script>

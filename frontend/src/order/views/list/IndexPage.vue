@@ -16,7 +16,7 @@
         </div>
         <div class="menu-list">
           <div class="list-area">
-            <div class="list" v-for="(list, idx) in 10" :key="list">
+            <div class="list" v-for="(list, idx) in 12" :key="list">
               <div class="img">
                 <img src="https://picsum.photos/id/429/4128/2322" />
               </div>
@@ -38,14 +38,21 @@
         </div>
       </div>
       <div class="my-order">
-        <div class="bg-white h-72 flex justify-start items-center px-16">
+        <div class="order-title">
           <h2 class="text-[2.0rem] font-bold">주문내역</h2>
         </div>
         <div class="order-items">
           <ul>
             <li v-for="orderList in 10" :key="orderList" class="item">
-              오더리스트{{ orderList }}
-              <div class="">
+              <div class="order-name">
+                <p>오더리스트{{ orderList }}</p>
+                <div>
+                  <button class="btn minus-btn">-</button>
+                  <input type="number" value="1" min="1" />
+                  <button class="btn plus-btn">+</button>
+                </div>
+              </div>
+              <div class="order-use">
                 <span class="mr-16"><b>30,000</b>원</span>
                 <button>삭제</button>
               </div>
@@ -53,19 +60,39 @@
           </ul>
         </div>
         <div class="order-button">
-          <h2>
-            합계
-            <span><b>300,000</b>원</span>
-          </h2>
-          <button>주문하기</button>
+          <div class="order-count">
+            <p>
+              주문수량<span><b>10</b></span
+              >개
+            </p>
+            <p>
+              합계
+              <span><b>300,000</b>원</span>
+            </p>
+          </div>
+          <button class="btn" @click.prevent="onModalOpen()">주문하기</button>
         </div>
       </div>
     </div>
+    <orderChooseView v-if="modal == true"></orderChooseView>
   </div>
 </template>
 
 <script>
-export default {};
+import orderChooseView from './orderChooseView.vue';
+import { ref } from 'vue';
+export default {
+  components: {
+    orderChooseView,
+  },
+  setup() {
+    let modal = ref(false);
+    const onModalOpen = () => {
+      modal.value = true;
+    };
+    return { modal, onModalOpen };
+  },
+};
 </script>
 
 <style lang="postcss" scoped>
