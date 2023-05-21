@@ -1,0 +1,31 @@
+
+.menu-choose {
+  @apply flex;
+  p {
+    @apply flex w-1/2 h-[200px] mx-16;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    button {
+      @apply w-full rounded-2xl text-[2.8rem] flex flex-col justify-center items-center font-bold;
+      small {
+        @apply text-[1.6rem] font-light;
+      }
+    }
+  }
+}
+.back-btn{
+  @apply flex justify-center pt-16 mt-16 border-t-1;
+  p{
+    @apply w-full font-bold;
+    button{
+      @apply w-full text-[2.0rem] bg-gray-100 py-16 rounded-2xl;
+      small{
+        @apply text-[1.6rem] font-normal m-8;
+      }
+    }
+  }
+}

@@ -59,7 +59,6 @@
 /* 모달 공통화 */
 .modal {
   @apply relative z-10;
-
   .modal-bg {
     @apply fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity;
   }
@@ -86,15 +85,35 @@
         }
 
         .modal-footer {
-          @apply bg-gray-50 flex;
+          @apply bg-gray-50 flex border-t-1 border-gray-200;
           button{
-            @apply m-0 py-16 w-1/2 rounded-none border-1;
+            @apply m-0 py-16 w-1/2 rounded-none border-0;
             &:first-child{
               border-right:0;
             }
           }
         }
       }
+    }
+  }
+}
+
+.modal.takeOutModal{
+  .modal-header h3{
+    @apply text-center !font-extrabold !text-[2.4rem];
+  }
+}
+
+.modal.orderView .modal-component .modal-container .modal-area{
+  @apply w-[478px];
+  .modal-header{
+    display:none;
+  }
+  .modal-content {
+    > div{
+      width: 100%;
+      background:#fff;
+      margin-bottom:16px;
     }
   }
 }

@@ -16,7 +16,12 @@
         </div>
         <div class="menu-list">
           <div class="list-area">
-            <div class="list" v-for="(list, idx) in 12" :key="list">
+            <div
+              class="list"
+              v-for="(list, idx) in 12"
+              :key="list"
+              @click.prevent="onProductModal()"
+            >
               <div class="img">
                 <img src="https://picsum.photos/id/429/4128/2322" />
               </div>
@@ -70,27 +75,55 @@
               <span><b>300,000</b>원</span>
             </p>
           </div>
-          <button class="btn" @click.prevent="onModalOpen()">주문하기</button>
+          <button class="btn" @click.prevent="onChooseModalOpen()">
+            주문하기
+          </button>
         </div>
       </div>
     </div>
-    <orderChooseView v-if="modal == true"></orderChooseView>
+    <order-choose-view
+      v-if="chooseModal == true"
+      @closePop="onChooseModalClose()"
+    ></order-choose-view>
+    <product-view
+      v-if="productModal == true"
+      @closePop="onProductModalClose()"
+    ></product-view>
   </div>
 </template>
 
 <script>
 import orderChooseView from './orderChooseView.vue';
+import productView from './productView.vue';
 import { ref } from 'vue';
 export default {
   components: {
     orderChooseView,
+    productView,
   },
   setup() {
-    let modal = ref(false);
-    const onModalOpen = () => {
-      modal.value = true;
+    let chooseModal = ref(false);
+    let productModal = ref(false);
+    const onChooseModalOpen = () => {
+      chooseModal.value = true;
     };
-    return { modal, onModalOpen };
+    const onChooseModalClose = () => {
+      chooseModal.value = false;
+    };
+    const onProductModal = () => {
+      productModal.value = true;
+    };
+    const onProductModalClose = () => {
+      productModal.value = false;
+    };
+    return {
+      chooseModal,
+      productModal,
+      onChooseModalOpen,
+      onChooseModalClose,
+      onProductModal,
+      onProductModalClose,
+    };
   },
 };
 </script>

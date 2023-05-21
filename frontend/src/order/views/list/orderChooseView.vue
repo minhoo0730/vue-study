@@ -4,15 +4,23 @@
       <div class="modal-content">
         <div class="menu-choose">
           <p>
-            <button class="btn">
+            <button class="bg-green-500 text-white">
               매장
               <small>매장에서 먹고 갈래요</small>
             </button>
           </p>
           <p>
-            <button class="btn">
+            <button class="bg-blue-500 text-white">
               포장
               <small>가져가서 먹을래요</small>
+            </button>
+          </p>
+        </div>
+        <div class="back-btn">
+          <p>
+            <button @click="$emit('closePop')">
+              추가주문 할게요.
+              <small>주문페이지로 돌아가기</small>
             </button>
           </p>
         </div>
@@ -29,26 +37,16 @@ export default {
     Modal,
   },
   setup() {
-    const modal = ref({
-      title: '드시고 가실 장소를 선택하세요.',
-      modalName: 'takeOut',
-    }).value;
-    return modal;
+    const title = ref('드시고 가실 장소를 선택하세요.').value;
+    const modalName = ref('takeOutModal').value;
+    return {
+      title,
+      modalName,
+    };
   },
 };
 </script>
 
 <style lang="postcss" scoped>
-.menu-choose {
-  @apply flex;
-  p {
-    @apply flex w-1/2 h-[200px] mx-16;
-    button {
-      @apply bg-gray-100 w-full rounded-3xl text-[2.8rem] flex flex-col justify-center items-center font-bold;
-      small {
-        @apply text-[1.6rem] font-normal;
-      }
-    }
-  }
-}
+@import '@/style/order/components/orderChooseView.css';
 </style>
