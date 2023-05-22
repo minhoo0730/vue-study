@@ -13,8 +13,15 @@
         <radio-form></radio-form>
       </div>
       <div class="modal-footer">
-        <button @click="$emit('closePop')">취소</button>
-        <button class="bg-red-500 text-white font-bold">담기</button>
+        <button class="close-btn" @click.prevent="$emit('closePop')">
+          취소
+        </button>
+        <button class="add-order" @click.prevent="$emit('addOrder')">
+          담기
+        </button>
+        <button class="quick-order" @click.prevent="$emit('openOrderView')">
+          바로 주문
+        </button>
       </div>
     </template>
   </modal>
@@ -31,8 +38,8 @@ export default {
     RadioForm,
   },
   setup() {
-    const title = ref('메뉴 이름').value;
-    const modalName = ref('orderView').value;
+    const title = ref('메뉴 이름');
+    const modalName = ref('orderView');
     return {
       title,
       modalName,
@@ -42,15 +49,5 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.modal-content {
-  @apply flex flex-col bg-gray-100 !p-0;
-  .menu-img {
-    @apply !mb-0;
-  }
-  .menu-title {
-    @apply p-16;
-  }
-  .menu-option {
-  }
-}
+@import '@/style/order/components/productView.css';
 </style>

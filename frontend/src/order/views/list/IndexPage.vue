@@ -87,6 +87,8 @@
     ></order-choose-view>
     <product-view
       v-if="productModal == true"
+      @openOrderView="openOrderView()"
+      @addOrder="addOrder()"
       @closePop="onProductModalClose()"
     ></product-view>
   </div>
@@ -116,6 +118,13 @@ export default {
     const onProductModalClose = () => {
       productModal.value = false;
     };
+    const openOrderView = () => {
+      chooseModal.value = true;
+      productModal.value = false;
+    };
+    const addOrder = () => {
+      productModal.value = false;
+    };
     return {
       chooseModal,
       productModal,
@@ -123,6 +132,8 @@ export default {
       onChooseModalClose,
       onProductModal,
       onProductModalClose,
+      openOrderView,
+      addOrder,
     };
   },
 };

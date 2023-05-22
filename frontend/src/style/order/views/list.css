@@ -3,9 +3,9 @@
   .order-area{
     @apply flex flex-col w-[75%] border-r-1 relative;
     .order-header{
-      @apply flex justify-between items-center px-16 py-16 sticky left-0 top-0 bg-[#111] shadow-md;
+      @apply flex justify-between items-center px-16 py-16 sticky left-0 top-0 bg-white shadow-sm;
       .logo{
-        @apply w-[15%] h-full flex justify-center items-center text-white;
+        @apply w-[15%] h-full flex justify-center items-center text-[#111];
       }
       .nav{
         @apply flex items-center w-[85%];
@@ -14,10 +14,10 @@
           li{
             @apply text-center w-1/5 rounded-full;
             button{
-              @apply w-full py-8 text-white;
-            }
-            &:hover{
-              @apply bg-gray-100 text-blue-600 font-bold;
+              @apply w-full py-8 text-[#111];
+              &:hover{
+                @apply text-red-600 font-bold;
+              }
             }
           }
         }
