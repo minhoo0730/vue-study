@@ -18,7 +18,7 @@
           <div class="list-area">
             <div
               class="list"
-              v-for="(list, idx) in 12"
+              v-for="(list, idx) in 16"
               :key="list"
               @click.prevent="onProductModal()"
             >
@@ -32,7 +32,7 @@
             </div>
           </div>
         </div>
-        <div class="content-footer" aria-label="Pagination">
+        <!-- <div class="content-footer" aria-label="Pagination">
           <div class="menu-title">
             <h2>주문하실 메뉴를 선택하세요.</h2>
           </div>
@@ -40,7 +40,7 @@
             <a href="#" class=""><i class="ri-arrow-left-line"></i>이전 </a>
             <a href="#" class="">다음<i class="ri-arrow-right-line"></i></a>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="my-order">
         <div class="order-title">

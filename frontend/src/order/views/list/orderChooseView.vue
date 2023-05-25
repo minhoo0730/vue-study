@@ -6,11 +6,25 @@
           <small>STEP.01</small>
           장소선택
         </p>
-        <p :class="orderState ? 'step-on' : 'not-step'">
+        <p
+          :class="
+            orderState == 'place' || orderState == 'takeOut'
+              ? 'step-on'
+              : 'not-step'
+          "
+        >
           <small>STEP.02</small>
           결제방식 선택
         </p>
-        <p>
+        <p
+          :class="
+            orderState == 'samsungPay' ||
+            orderState == 'applyPay' ||
+            orderState == 'creditCard'
+              ? 'step-on'
+              : 'not-step'
+          "
+        >
           <small>STEP.03</small>
           결제
         </p>

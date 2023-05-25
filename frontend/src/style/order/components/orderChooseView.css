@@ -2,7 +2,7 @@
 .step-list{
   @apply flex bg-blue-50;
   > p{
-    @apply w-full flex flex-col p-16 text-gray-400 rounded-r-full relative;
+    @apply w-full flex flex-col px-16 py-8 text-gray-400 rounded-r-full relative;
   }
   .step-on{
     @apply bg-blue-100 font-bold text-blue-700;

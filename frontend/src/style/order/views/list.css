@@ -24,13 +24,13 @@
       }
     }
     .menu-list{
-      overflow-y:overlay;
-      @apply px-32 pr-32 flex flex-wrap h-full;
+      overflow-y:overlay; height:calc(100vh - 72px);
+      @apply px-32 py-32 flex flex-wrap;
       /* > div{
         @apply flex flex-col;
       } */
       .list-area{
-        @apply flex flex-row flex-wrap justify-start content-center;
+        @apply flex flex-row flex-wrap justify-start;
         /* @apply flex flex-row flex-wrap; */
         .list{
           @apply rounded-xl overflow-hidden border-1 cursor-pointer mb-16 mr-32 w-[calc(25%-26px)];
@@ -41,9 +41,9 @@
             @apply mb-0;
           }
           .img{
-            @apply w-full h-[125px] overflow-hidden flex justify-center items-center bg-gray-100;
+            @apply w-full overflow-hidden flex justify-center items-center bg-gray-100;
             > img{
-              @apply w-full h-[160px];
+              @apply w-full;
             }
           }
           .menu-info{
@@ -96,7 +96,7 @@
       }
     }
     .order-items{
-      padding:16px; height:calc(100vh - 230px); overflow-y:scroll;
+      padding:16px; height:calc(100vh - 191px); overflow-y:scroll;
       > ul{
         @apply flex flex-col h-full;
         > li{
@@ -117,7 +117,7 @@
       }
     }
     .order-button{
-      @apply w-full h-113 border-t-1;
+      @apply w-full border-t-1;
       .order-count{
         @apply flex justify-end p-16;
         > p{

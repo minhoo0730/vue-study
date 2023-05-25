@@ -8,7 +8,9 @@
         <div class="product-top">
           <h4 class="content-sub-title">등록된 메뉴</h4>
           <div class="product-top-btn">
-            <button class="btn add-btn">메뉴추가</button>
+            <button class="btn add-btn" @click.prevent="onClickAddMenu()">
+              메뉴추가
+            </button>
           </div>
         </div>
         <div class="product">
@@ -32,11 +34,28 @@
         </div>
       </div>
     </div>
+    <add-menu-view v-if="AddMenuModal == true"></add-menu-view>
   </div>
 </template>
 
 <script>
-export default {};
+import AddMenuView from './AddMenuView.vue';
+import { ref } from 'vue';
+export default {
+  components: {
+    AddMenuView,
+  },
+  setup() {
+    let AddMenuModal = ref(false);
+    const onClickAddMenu = () => {
+      AddMenuModal.value = true;
+    };
+    return {
+      AddMenuModal,
+      onClickAddMenu,
+    };
+  },
+};
 </script>
 
 <style lang="postcss" scoped>

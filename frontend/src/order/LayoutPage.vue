@@ -1,9 +1,9 @@
 <template>
   <div>
     <router-view></router-view>
-    <footer id="footer">
+    <!-- <footer id="footer">
       <p>© Company Corp. All rights reserved.</p>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
