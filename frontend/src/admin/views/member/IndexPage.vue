@@ -54,6 +54,6 @@
 export default {};
 </script>
 
-<style lang="postcss" scoped>
-@import '@/style/admin/views/member.css';
+<style lang="scss" scoped>
+@import '@/style/admin/views/member.scss';
 </style>

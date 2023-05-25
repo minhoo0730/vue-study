@@ -31,24 +31,31 @@
       </div>
       <div class="modal-content">
         <div class="menu-place" v-if="orderState == ''">
-          <h2 class="text-[2.4rem] font-bold text-center mb-16">
+          <h2>
+          <!-- <h2 class="text-[2.4rem] font-bold text-center mb-16"> -->
             드시고 가실 장소를 선택하세요.
           </h2>
           <div class="place-area">
             <p>
               <button
-                class="bg-green-500 text-white"
                 @click.prevent="orderState = 'place'"
               >
+              <!-- <button
+                class="bg-green-500 text-white"
+                @click.prevent="orderState = 'place'"
+              > -->
                 매장
                 <small>매장에서 먹고 갈래요</small>
               </button>
             </p>
             <p>
               <button
-                class="bg-blue-500 text-white"
                 @click.prevent="orderState = 'takeOut'"
               >
+              <!-- <button
+                class="bg-blue-500 text-white"
+                @click.prevent="orderState = 'takeOut'"
+              > -->
                 포장
                 <small>가져가서 먹을래요</small>
               </button>
@@ -59,7 +66,8 @@
           class="pay-choose"
           v-else-if="orderState == 'place' || orderState == 'takeOut'"
         >
-          <h2 class="text-[2.4rem] font-bold text-center mb-20">
+          <h2>
+          <!-- <h2 class="text-[2.4rem] font-bold text-center mb-20"> -->
             결제하실 방법을 선택하세요.
           </h2>
           <div class="pay-button">
@@ -129,6 +137,6 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
-@import '@/style/order/components/orderChooseView.css';
+<style lang="scss" scoped>
+@import '@/style/order/components/orderChooseView.scss';
 </style>

@@ -76,6 +76,6 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
-@import '@/style/admin/views/sales.css';
+<style lang="scss" scoped>
+@import '@/style/admin/views/sales.scss';
 </style>

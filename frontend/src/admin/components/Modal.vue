@@ -60,7 +60,7 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="scss" scoped>
 .modal-header {
   @apply flex justify-between items-center;
   > i {

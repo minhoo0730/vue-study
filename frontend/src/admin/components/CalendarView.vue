@@ -161,6 +161,6 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
-@import '@/style/admin/components/CalendarView.css';
+<style lang="scss" scoped>
+@import '@/style/admin/components/CalendarView.scss';
 </style>

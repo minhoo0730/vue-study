@@ -47,7 +47,7 @@
 export default {};
 </script>
 
-<style lang="postcss" scoped>
-@import '@/style/admin/common/header.css';
-@import '@/style/admin/common/footer.css';
+<style lang="scss" scoped>
+@import '@/style/admin/common/header.scss';
+@import '@/style/admin/common/footer.scss';
 </style>

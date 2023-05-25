@@ -58,6 +58,6 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
-@import '@/style/admin/views/menus.css';
+<style lang="scss" scoped>
+@import '@/style/admin/views/menus.scss';
 </style>

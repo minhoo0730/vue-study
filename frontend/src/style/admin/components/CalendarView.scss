@@ -1,0 +1,48 @@
+.calendar{
+  // @apply border-1 border-gray-200 rounded-lg bg-white;
+  // > div{
+  //   @apply grid grid-cols-7 border-gray-200 border-b-1 h-110;
+  //   &:last-child{
+  //     @apply border-0;
+  //   }
+  //   > div{
+  //     @apply text-center border-r-1 border-gray-200 h-full p-12 relative;
+  //     time{
+  //       @apply rounded-full w-26 h-26 text-center flex items-center justify-center pr-2 absolute left-12 top-12;
+  //     }
+  //     &:last-child{
+  //       @apply border-r-0;
+  //     }
+  //   }
+  //   .day-date{
+  //     @apply text-left font-light text-[1.4rem] cursor-pointer flex;
+  //     &:hover, &:focus{
+  //       @apply bg-gray-50;
+  //     }
+  //     .sales-data{
+  //       @apply flex w-full justify-end items-end;
+  //     }
+  //   }
+  //   .sat{
+  //     @apply text-blue-600;
+  //   }
+  //   .sun{
+  //     @apply text-red-600;
+  //   }
+  //   .disable-day{
+  //     @apply bg-[rgba(107,114,128,.1)] text-[rgb(107,114,128)];
+  //   }
+  //   .today time{
+  //     @apply text-white bg-[#4f46e5] font-bold absolute;
+  //   }
+  // }
+  // .calendar-day{
+  //   @apply h-auto content-center shadow-sm;
+  //   .day-name{
+  //     @apply font-bold py-12 text-center border-r-1;
+  //     &:last-child{
+  //       @apply border-r-0;
+  //     }
+  //   }
+  // }
+}

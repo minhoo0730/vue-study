@@ -1,0 +1,126 @@
+/* 공통으로 사용될 컴포넌트 스타일 */
+/* 버튼 공통화 */
+
+
+/* 컨텐츠 영역(관리자 페이지) */
+// #container.admin{
+//   @apply pt-60 pb-20 px-40;
+//   #content{
+//     @apply max-w-screen-xl m-auto;
+//     .content-title{
+//       @apply text-[2.4rem] mt-28 mb-14 leading-snug;
+//       span{
+//         @apply w-full font-bold block;
+//       }
+//     }
+//     .content-sub-title{
+//       @apply text-[1.6rem];
+//     }
+
+//     /* 금액 단위 표시 스타일링 */
+//     p.sales-use{
+//       @apply font-normal;
+//       .use{
+//         @apply font-bold mr-2
+//       }
+//     }
+//     &.full-view-page{
+//       @apply max-w-full;
+//     }
+
+//     /* 컨턴츠 내부 버튼 공통화 */
+//     button{
+//       @apply text-[1.4rem] border px-16 rounded-xl;
+//     }
+//     input{
+//       @apply rounded-xl px-12 py-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 text-[1.4rem];
+//       &:focus{
+//         @apply ring-2 ring-inset ring-blue-500;
+//       }
+//     }
+//   }
+//   /* 관리자 탭메뉴 공통 */
+//   ul.tab-menu{
+//     @apply flex border-1 rounded-lg mb-26 w-1/4 bg-white;
+//     li{
+//       @apply flex w-1/4 items-center justify-center border-r-1 last:border-none;
+//       button{
+//         @apply w-full py-6 text-[1.4rem] rounded-none border-none;
+//       }
+//     }
+//   }
+// }
+
+// /* 주문페이지 공통 */
+// #container.order{
+//   @apply flex flex-col h-full bg-white;
+// }
+
+// /* 모달 공통화 */
+// .modal {
+//   @apply relative z-10;
+//   .modal-bg {
+//     @apply fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity;
+//   }
+
+//   .modal-component {
+//     @apply fixed inset-0 z-10 overflow-y-auto;
+
+//     .modal-container {
+//       @apply flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0;
+
+//       .modal-area {
+//         @apply relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 w-full sm:w-[768px];
+
+//         .modal-header {
+//           @apply mt-3 text-center p-16 sm:mt-0 sm:text-left border-b-1;
+
+//           h3 {
+//             font-size: 2rem;
+//             font-weight: 600;
+//           }
+//         }
+//         .modal-content {
+//           @apply p-16;
+//         }
+
+//         .modal-footer {
+//           @apply bg-gray-50 flex border-t-1 border-gray-200;
+//           button{
+//             @apply m-0 py-16 rounded-none border-0;
+//             &:first-child{
+//               border-right:0;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// /* .modal.takeOutModal{
+//   .modal-header h3{
+//     @apply text-center !font-extrabold !text-[2.4rem];
+//   }
+// } */
+
+// .modal.orderView .modal-component .modal-container .modal-area{
+//   @apply w-[768px];
+//   .modal-header{
+//     display:none;
+//   }
+//   .modal-content {
+//     > div{
+//       width: 100%;
+//       background:#fff;
+//       margin-bottom:16px;
+//     }
+//   }
+// }
+
+// .form-box{
+//   @apply border-1 border-gray-200 relative;
+//   label{
+//     @apply absolute left-14 top-14;
+//   }
+// }

@@ -29,10 +29,21 @@ export default defineConfig({
       '.mjs',
       '.ts',
       '.tsx',
+      '.scss',
       '.vue',
     ],
   },
   server: {
-    port: 3000,
+    watch: {
+      usePolling: true,
+    },
+    // port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000/api',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, ''),
+      },
+    },
   },
 })

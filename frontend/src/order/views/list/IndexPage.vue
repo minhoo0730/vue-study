@@ -139,6 +139,6 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
-@import '@/style/order/views/list.css';
+<style lang="scss" scoped>
+@import '@/style/order/views/list.scss';
 </style>

@@ -1,6 +1,0 @@
-#footer{
-  @apply fixed left-0 bottom-0 w-full text-center py-10 border-t-1 border-gray-200 bg-white;
-  > p{
-    @apply text-[1.4rem] text-[#c1c8cc] font-normal;
-  }
-}

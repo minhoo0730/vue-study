@@ -12,6 +12,8 @@ import { createApp } from 'vue'
 
 // Plugins
 import { registerPlugins } from '@/plugins'
+import 'remixicon/fonts/remixicon.css';
+import '@/style/style.css';
 
 const app = createApp(App)
 

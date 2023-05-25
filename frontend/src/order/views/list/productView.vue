@@ -6,9 +6,12 @@
           <img src="https://picsum.photos/id/429/4128/2322" alt="" />
         </div>
         <div class="menu-title">
-          <h2 class="text-[2.4rem] font-bold">메뉴 이름</h2>
+          <h2>메뉴 이름</h2>
+          <p>메뉴 상세 설명</p>
+          <p><b>14,000</b>원</p>
+          <!-- <h2 class="text-[2.4rem] font-bold">메뉴 이름</h2>
           <p class="text-[1.4rem] text-gray-500">메뉴 상세 설명</p>
-          <p class="flex mt-6"><b class="mr-4">14,000</b>원</p>
+          <p class="flex mt-6"><b class="mr-4">14,000</b>원</p> -->
         </div>
         <radio-form></radio-form>
       </div>
@@ -48,6 +51,6 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
-@import '@/style/order/components/productView.css';
+<style lang="scss" scoped>
+@import '@/style/order/components/productView.scss';
 </style>

@@ -11,6 +11,6 @@
 export default {};
 </script>
 
-<style lang="postcss" scoped>
-@import '@/style/order/views/main.css';
+<style lang="scss" scoped>
+@import '@/style/order/views/main.scss';
 </style>
