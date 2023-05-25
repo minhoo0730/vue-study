@@ -1,33 +1,26 @@
 {
-  "name": "vue-study",
+  "name": "frontend",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
-    "dev": "vite --host --open",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "axios": "^1.4.0",
-    "cors": "^2.8.5",
-    "mongodb": "^5.3.0",
-    "remixicon": "^3.2.0",
-    "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "@mdi/font": "7.0.96",
+    "roboto-fontface": "*",
+    "vue": "^3.2.0",
+    "vue-router": "^4.0.0",
+    "vuetify": "^3.0.0",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.2.0",
-    "@vitejs/plugin-vue": "^4.0.0",
-    "@vue/eslint-config-prettier": "^7.1.0",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^8.34.0",
-    "eslint-plugin-vue": "^9.9.0",
-    "postcss": "^8.4.23",
-    "postcss-nesting": "^11.2.2",
-    "prettier": "^2.8.4",
-    "tailwindcss": "^3.3.1",
-    "vite": "^4.1.4"
+    "@vitejs/plugin-vue": "^3.0.3",
+    "eslint": "^8.22.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "sass": "^1.62.1",
+    "vite": "^3.0.0",
+    "vite-plugin-vuetify": "^1.0.0"
   }
 }
