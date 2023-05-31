@@ -52,5 +52,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/order/components/productView.scss';
+// @import '@/style/order/components/productView.scss';
 </style>

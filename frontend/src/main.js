@@ -12,8 +12,11 @@ import { createApp } from 'vue'
 
 // Plugins
 import { registerPlugins } from '@/plugins'
+// import 'vuetify/styles'
+import './main.scss'
 import 'remixicon/fonts/remixicon.css';
-import '@/style/style.css';
+import '@/style/_reset.css';
+import '@/style/font.css';
 
 const app = createApp(App)
 

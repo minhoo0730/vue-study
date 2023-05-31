@@ -138,5 +138,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/order/components/orderChooseView.scss';
+// @import '@/style/order/components/orderChooseView.scss';
 </style>
