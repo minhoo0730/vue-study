@@ -1,7 +1,7 @@
 <template>
   <div class="option-components">
     <div
-      :class="`menu-option${itemsIdx}`"
+      :class="`menu-option menu-option_${itemsIdx}`"
       v-for="(optionItems, itemsIdx) in 1"
       :key="optionItems"
     >
@@ -49,6 +49,50 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.option-components{
+  padding:16px;
+  border-top:1px solid #eee;
+  .menu-option {
+    .option-title{
+      font-weight:700;
+      font-size:2.0rem;
+    }
+    > p{
+      font-size:1.6rem; margin-top:8px; color:#616161;
+    }
+  }
+  .option-list {
+    width:100%; margin-top:8px;
+    > div {
+      width:100%; height:40px; display:flex; align-items:center; justify-content: space-between;
+      > div{
+        display:flex; align-items: center;
+        input[type='radio']:checked + label {
+          color:#6A1B9A;
+        }
+        label{font-size:1.6rem; margin-left:8px;}
+        input[type='radio'] {
+          border:1px solid #ddd;
+          width:16px; height:16px; color:#6A1B9A; border-radius:50px;
+          // border-1 h-16 w-16 border-gray-300 text-indigo-600 rounded-full;
+          &:checked {
+            background:#6A1B9A; position:relative;
+            &:before {
+              content: '';
+              position:absolute;
+              background:white;
+              width:6px;
+              height:6px;
+              top:4px;
+              left:4px;
+              border-radius:50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 // .option-components {
 //   @apply p-16;
 //   .menu-option {

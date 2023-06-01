@@ -3,26 +3,23 @@
     <template v-slot:modalContent>
       <div class="modal-content">
         <div class="menu-img">
-          <img src="https://picsum.photos/id/429/4128/2322" alt="" />
+          <img src="https://picsum.photos/id/429/4128/2322" class="w-100" />
         </div>
-        <div class="menu-title">
-          <h2>메뉴 이름</h2>
-          <p>메뉴 상세 설명</p>
-          <p><b>14,000</b>원</p>
-          <!-- <h2 class="text-[2.4rem] font-bold">메뉴 이름</h2>
-          <p class="text-[1.4rem] text-gray-500">메뉴 상세 설명</p>
-          <p class="flex mt-6"><b class="mr-4">14,000</b>원</p> -->
+        <div class="menu-title" style="padding:16px;">
+          <h2 style="font-weight:700; font-size:2.4rem;">메뉴 이름</h2>
+          <p style="font-size:1.4rem; margin-top:6px;" class="text-grey-darken-1">메뉴 상세 설명</p>
+          <p class="d-flex mt-2"><b class="mr-1">14,000</b>원</p>
         </div>
         <radio-form></radio-form>
       </div>
-      <div class="modal-footer">
-        <button class="close-btn" @click.prevent="$emit('closePop')">
+      <div class="modal-footer d-flex">
+        <button style="height:50px; font-size:1.6rem;" class="w-50 bg-grey-lighten-3" @click.prevent="$emit('closePop')">
           취소
         </button>
-        <button class="add-order" @click.prevent="$emit('addOrder')">
+        <button style="height:50px; font-size:1.6rem;" class="w-50 text-white bg-green-accent-4" @click.prevent="$emit('addOrder')">
           담기
         </button>
-        <button class="quick-order" @click.prevent="$emit('openOrderView')">
+        <button style="height:50px; font-size:1.6rem;" class="w-100 bg-red-accent-3" @click.prevent="$emit('openOrderView')">
           바로 주문
         </button>
       </div>
@@ -52,5 +49,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 // @import '@/style/order/components/productView.scss';
 </style>

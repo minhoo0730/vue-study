@@ -82,9 +82,20 @@
         </v-col>
       </v-col>
     </v-row>
-    <!-- <v-row class="v-col-12" no-gutters>
-    </v-row> -->
+    <order-choose-view
+      v-if="chooseModal == true"
+      @closePop="onChooseModalClose()"
+    ></order-choose-view>
+    <product-view
+      v-if="productModal == true"
+      @openOrderView="openOrderView()"
+      @addOrder="addOrder()"
+      @closePop="onProductModalClose()"
+    ></product-view>
   </v-layout>
+
+
+  <!-- <test-modal></test-modal> -->
   <!-- <div id="container" class="order">
     <div id="content">
       <div class="order-area">
@@ -145,11 +156,13 @@
 <script>
 import orderChooseView from './orderChooseView.vue';
 import productView from './productView.vue';
+import testModal from './testModal.vue';
 import { ref } from 'vue';
 export default {
   components: {
     orderChooseView,
     productView,
+    testModal
   },
   setup() {
     let chooseModal = ref(false);
