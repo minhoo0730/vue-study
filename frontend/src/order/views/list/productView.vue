@@ -13,13 +13,9 @@
         <radio-form></radio-form>
       </div>
       <div class="modal-footer">
-        <button class="close-btn" @click.prevent="$emit('closePop')">
-          취소
-        </button>
-        <button class="add-order" @click.prevent="$emit('addOrder')">
-          담기
-        </button>
-        <button class="quick-order" @click.prevent="$emit('openOrderView')">
+        <button class="close-btn" @click.prevent="closePop">취소</button>
+        <button class="add-order" @click.prevent="addOrder">담기</button>
+        <button class="quick-order" @click.prevent="openOrderView">
           바로 주문
         </button>
       </div>
@@ -37,12 +33,29 @@ export default {
     Modal,
     RadioForm,
   },
-  setup() {
+  emits: {
+    closePop: null,
+    addOrder: null,
+    openOrderView: null,
+  },
+  setup(props, { emit }) {
     const title = ref('메뉴 이름');
     const modalName = ref('orderView');
+    const closePop = () => {
+      emit('closePop');
+    };
+    const addOrder = () => {
+      emit('addOrder');
+    };
+    const openOrderView = () => {
+      emit('openOrderView');
+    };
     return {
       title,
       modalName,
+      closePop,
+      addOrder,
+      openOrderView,
     };
   },
 };
