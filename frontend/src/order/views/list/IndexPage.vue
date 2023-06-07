@@ -42,7 +42,7 @@
         </v-row>
       </v-col>
       <v-col cols="3" style="background:#fff;">
-        <v-col style=" padding:0;">
+        <v-col style="padding:0;">
           <div class="d-flex align-center" style="height:60px; padding:0 16px; box-shadow: 0 2px 3px 0 rgba(56,63,70,.06);">
             <h2 class="" style="font-size:2.0rem;">주문내역</h2>
           </div>
@@ -52,9 +52,9 @@
                 <div class="d-flex justify-space-between mb-3" style="">
                   <p style="font-size:1.6rem;">오더리스트{{ orderList }}</p>
                   <div class="">
-                    <button class="btn minus-btn">-</button>
-                    <input type="number" value="1" min="1" class="text-center" style="width:50px;"/>
-                    <button class="btn plus-btn">+</button>
+                    <button class="btn minus-btn" @click="countInquiry--" :disabled="countInquiry == 1">-</button>
+                    <input type="number" min="1" class="text-center" style="width:50px;" v-model.number="countInquiry" readonly/>
+                    <button class="btn plus-btn" @click="countInquiry++">+</button>
                   </div>
                 </div>
                 <div class="d-flex justify-space-between">
@@ -93,80 +93,21 @@
       @closePop="onProductModalClose()"
     ></product-view>
   </v-layout>
-
-
-  <!-- <test-modal></test-modal> -->
-  <!-- <div id="container" class="order">
-    <div id="content">
-      <div class="order-area">
-        <div class="order-header">
-          <div class="logo">로고</div>
-          <nav class="nav">
-            <ul>
-              <li><button>세트메뉴</button></li>
-              <li><button>철판메뉴</button></li>
-              <li><button>우동메뉴</button></li>
-              <li><button>사이드메뉴</button></li>
-              <li><button>음료</button></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="menu-list">
-          <div class="list-area">
-            <div
-              class="list"
-              v-for="(list, idx) in 16"
-              :key="list"
-              @click.prevent="onProductModal()"
-            >
-              <div class="img">
-                <img src="https://picsum.photos/id/429/4128/2322" />
-              </div>
-              <div class="menu-info">
-                <p class="menu-name">메뉴{{ idx + 1 }}</p>
-                <p class="use"><b>20,000</b>원</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="content-footer" aria-label="Pagination">
-          <div class="menu-title">
-            <h2>주문하실 메뉴를 선택하세요.</h2>
-          </div>
-          <div class="pagination-btn">
-            <a href="#" class=""><i class="ri-arrow-left-line"></i>이전 </a>
-            <a href="#" class="">다음<i class="ri-arrow-right-line"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <order-choose-view
-      v-if="chooseModal == true"
-      @closePop="onChooseModalClose()"
-    ></order-choose-view>
-    <product-view
-      v-if="productModal == true"
-      @openOrderView="openOrderView()"
-      @addOrder="addOrder()"
-      @closePop="onProductModalClose()"
-    ></product-view>
-  </div> -->
 </template>
 
 <script>
 import orderChooseView from './orderChooseView.vue';
 import productView from './productView.vue';
-import testModal from './testModal.vue';
 import { ref } from 'vue';
 export default {
   components: {
     orderChooseView,
     productView,
-    testModal
   },
   setup() {
     let chooseModal = ref(false);
     let productModal = ref(false);
+    let countInquiry = ref(1);
     const onChooseModalOpen = () => {
       chooseModal.value = true;
     };
@@ -189,6 +130,7 @@ export default {
     return {
       chooseModal,
       productModal,
+      countInquiry,
       onChooseModalOpen,
       onChooseModalClose,
       onProductModal,

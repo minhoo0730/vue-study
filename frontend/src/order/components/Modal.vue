@@ -32,4 +32,5 @@ export default {
 
 <style lang="scss" scoped>
   #orderView .modal-header{display:none;}
+  #takeOutModal .modal-header{display:none;}
 </style>

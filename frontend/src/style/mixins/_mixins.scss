@@ -1,0 +1,39 @@
+// 믹스인 함수 만드는 곳
+@mixin set-color($color, $bg-color){
+  color:$color;
+  background:$bg-color;
+}
+
+// flex 믹스인
+// 가운데
+@mixin flex-center{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 왼쪽
+@mixin flex-left{
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+// 오른쪽
+@mixin flex-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+// 가로
+@mixin flex-row{
+  display:flex;
+  flex-direction: row;
+}
+
+// 세로
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}

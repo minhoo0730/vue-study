@@ -1,0 +1,5 @@
+@use '../forward/forward' as *;
+
+.tab-menu li button {
+  @include set-color($white, $green);
+}

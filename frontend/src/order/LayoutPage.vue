@@ -1,5 +1,7 @@
 <template>
-  <router-view></router-view>
+  <div class="main-view">
+    <router-view></router-view>
+  </div>
   <!-- <footer id="footer">
     <p>© Company Corp. All rights reserved.</p>
   </footer> -->
@@ -10,5 +12,6 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+  .main-view{overflow:auto;}
 // @import '@/style/order/common/footer.scss';
 </style>

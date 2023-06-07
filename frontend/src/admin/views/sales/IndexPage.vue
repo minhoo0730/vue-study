@@ -12,7 +12,7 @@
           <button>매출상세정보</button>
           <button>누락매출찾기</button>
         </div> -->
-        <div class="order-total">
+        <div class="order-total grid_3">
           <div class="yesterday">
             <p>어제 주문 건수<span class="yesterday-date">4.28 금</span></p>
             <h4 class="amount">100<small class="total-use">건</small></h4>
@@ -22,7 +22,7 @@
             <h4 class="amount">50<small class="total-use">건</small></h4>
           </div>
         </div>
-        <div class="total-inquiry">
+        <div class="total-inquiry grid_3">
           <div class="yesterday">
             <p>어제 전체 매출<span class="yesterday-date">4.28 금</span></p>
             <h4 class="amount">932,000<small class="total-use">원</small></h4>
@@ -32,7 +32,7 @@
             <h4 class="amount">89,000<small class="total-use">원</small></h4>
           </div>
         </div>
-        <div class="detail-store">
+        <div class="detail-store grid_3">
           <div class="store-card">
             <p>매장<br />카드결제</p>
             <div>
@@ -77,5 +77,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/admin/views/sales.scss';
+@use '@/style/import-design' as *;
+
+.content-title{
+  font-size:2.4rem; margin-top:28px; margin-bottom:14px;
+  span{
+    width:100%; font-weight:700; display:block;
+  }
+}
+.sales-result{
+  @include flex-row; flex-wrap:nowrap;
+  > button{
+    font-size:2.4rem;
+  }
+  > div{
+    flex-direction:row;
+    @include flex-left;
+    @include set-color($black, $white);
+    box-shadow:$shadow_black;
+    border:1px solid $gray;
+    border-radius:8px;
+    padding:16px;
+    margin-left:16px;
+    &:first-child{margin-left:0;}
+    > div{
+      @include flex-col; width:100%;
+      > p span{margin-left:6px;}
+      > .amount{
+        font-size:2.4rem;
+        small.total-use{
+          font-weight:500; font-size:1.6rem; margin-left:4px;
+        }
+      }
+    }
+    .store-card{
+      @include flex-left; @include flex-row;
+      > div, >p{
+        width:100%;
+      }
+    }
+  }
+}
+
 </style>

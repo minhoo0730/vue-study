@@ -162,5 +162,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/admin/components/CalendarView.scss';
+// @import '@/style/admin/components/CalendarView.scss';
 </style>

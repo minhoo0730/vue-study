@@ -37,7 +37,7 @@
               >옵션이름</label
             > -->
           </div>
-          <p class="flex"><b class="mr-4">+14,000</b>원</p>
+          <p class="flex"><b>+14,000</b>원</p>
         </div>
       </div>
     </div>
