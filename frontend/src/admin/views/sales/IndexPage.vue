@@ -64,14 +64,15 @@ export default {
     CalendarView,
   },
   mounted() {
-    axios
-      .get('http://localhost:3000/api/user')
-      .then(r => {
-        console.log(r);
+    this.getSalesData()
+  },
+  methods:{
+    async getSalesData(){
+      await axios.get('http://localhost:9000/sales').then(response => {
+        const responseData = response.data;
+        console.log(responseData);
       })
-      .catch(e => {
-        console.error(e.message);
-      });
+    },
   },
 };
 </script>

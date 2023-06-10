@@ -59,5 +59,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/admin/views/menus.scss';
+// @import '@/style/admin/views/menus.scss';
 </style>
