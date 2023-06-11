@@ -6,7 +6,7 @@ const cors = require('cors');
 
 // API 파일경로
 const indexRouter = require('./routes/index');
-const salesRouter = require('./routes/api/sales');
+const menuRouter = require('./routes/api/menu');
 
 app.use(cors());
 app.use(express.json())
@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended:false}))
 
 // API 경로
 app.use('/api', indexRouter);
-app.use('/sales', salesRouter);
+app.use('/menu', menuRouter);
 
 // 몽고DB
 mongoose.set("strictQuery", false)

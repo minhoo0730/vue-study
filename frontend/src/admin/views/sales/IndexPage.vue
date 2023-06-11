@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="detail-inquiry">
-        <h4 class="content-title"><b>매출조회</b></h4>
+        <h4 class="content-title">매출조회</h4>
         <ul class="tab-menu">
           <li><button class="btn tab-btn">일</button></li>
           <li><button class="btn tab-btn">월</button></li>
@@ -58,21 +58,11 @@
 
 <script>
 import CalendarView from '@/admin/components/CalendarView.vue';
-import axios from 'axios';
 export default {
   components: {
     CalendarView,
   },
-  mounted() {
-    this.getSalesData()
-  },
   methods:{
-    async getSalesData(){
-      await axios.get('http://localhost:9000/sales').then(response => {
-        const responseData = response.data;
-        console.log(responseData);
-      })
-    },
   },
 };
 </script>
@@ -80,12 +70,6 @@ export default {
 <style lang="scss" scoped>
 @use '@/style/import-design' as *;
 
-.content-title{
-  font-size:2.4rem; margin-top:28px; margin-bottom:14px;
-  span{
-    width:100%; font-weight:700; display:block;
-  }
-}
 .sales-result{
   @include flex-row; flex-wrap:nowrap;
   > button{

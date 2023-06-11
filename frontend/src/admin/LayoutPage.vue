@@ -2,7 +2,9 @@
   <div class="admin-view">
     <header id="header">
       <v-row no-gutters class="w-100 h-100 align-center justify-space-between" style="padding:6px 40px;">
-        <div class="logo"><a href="/admin">LOGO</a></div>
+        <div class="logo">
+          <router-link to="/admin">LOGO</router-link>
+        </div>
         <nav class="nav">
           <ul class="d-flex">
             <li>

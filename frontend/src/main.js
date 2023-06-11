@@ -17,7 +17,7 @@ import './main.scss'
 import 'remixicon/fonts/remixicon.css';
 import '@/style/_reset.css';
 import '@/style/font.css';
-import '@/style/import-design.scss';
+import '@/style/common.scss';
 
 const app = createApp(App)
 
