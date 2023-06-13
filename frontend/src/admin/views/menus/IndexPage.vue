@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <add-menu-view v-if="AddMenuModal == true"></add-menu-view>
+    <add-menu-view v-if="addMenuModal == true" @addMenuClose="addMenuModal = false"></add-menu-view>
   </div>
 </template>
 
@@ -49,10 +49,10 @@ export default {
     AddMenuView,
   },
   setup() {
-    let AddMenuModal = ref(false);
+    let addMenuModal = ref(false);
     const menuList = ref([]);
     const onClickAddMenu = () => {
-      AddMenuModal.value = true;
+      addMenuModal.value = true;
     };
     const getMenuData = async () => {
       await axios.get('http://localhost:9000/menu').then(response => {
@@ -68,7 +68,7 @@ export default {
       getMenuData();
     })
     return {
-      AddMenuModal,
+      addMenuModal,
       menuList,
       onClickAddMenu,
     };
