@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const saleSchema = mongoose.Schema(
+const menuSchema = mongoose.Schema(
   {
-    menuId:{
-      type:Number,
-      default:0,
-    },
+    // menuId:{
+    //   type:Number,
+    //   default:0,
+    // },
     name:{
       type:String,
       required : [true, "Please enter a Menu name"]
@@ -17,11 +17,11 @@ const saleSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter a Menu categore"]
     },
-    quantity:{
-      type:Number,
-      required:true,
-      default:0
-    },
+    // quantity:{
+    //   type:Number,
+    //   required:false,
+    //   default:0
+    // },
     price:{
       type:Number,
       required:true,
@@ -35,5 +35,5 @@ const saleSchema = mongoose.Schema(
     timestamps:true
   }
 )
-const Sales = mongoose.model('Sales', saleSchema);
-module.exports = Sales;
+const menus = mongoose.model('menus', menuSchema);
+module.exports = menus;
