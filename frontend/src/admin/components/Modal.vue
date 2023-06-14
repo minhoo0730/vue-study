@@ -1,43 +1,45 @@
 <template>
   <v-dialog
-    v-model="dialog"
     persistent
-    :class="modal.modalName"
     transition="dialog-bottom-transition"
     width="768"
   >
     <v-card>
-      <div class="modal-header">
-        <h2 class="" id="modal-title">{{ modal.title }}</h2>
-        <button class="close-btn" @click.prevent="onClickClose"><i class="ri-close-fill"></i></button>
+      <div class="modal-header" v-if="$slots.modalHeader">
+        <slot name="modalHeader"></slot>
       </div>
-      <slot name="modalContent" class="modal-content"></slot>
+      <div class="modal-header" v-else>
+        <h2 style="font-size:2.0rem; color:red; text-align:center; width:100%;">
+          #Header 폴백(이 메시지가 보이면 부모 컴포넌트 모달에서 #modalHeader로 슬롯네임드를 지정하세요.)
+        </h2>
+      </div>
+      <div class="modal-content"  v-if="$slots.modalContent">
+        <slot name="modalContent"></slot>
+      </div>
+      <div class="modal-content" v-else>
+        <h2 style="font-size:2.0rem; color:red; text-align:center; width:100%;">
+          #Footer 폴백(이 메시지가 보이면 부모 컴포넌트 모달에서 #modalContent로 슬롯네임드를 지정하세요.)
+        </h2>
+      </div>
+      <div class="modal-footer"  v-if="$slots.modalFooter">
+        <slot name="modalFooter"></slot>
+      </div>
+      <div class="modal-footer" v-else>
+        <h2 style="font-size:2.0rem; color:red; text-align:center; width:100%;">
+          #Footer 폴백(이 메시지가 보이면 부모 컴포넌트 모달에서 #modalFooter로 슬롯네임드를 지정하세요.)
+        </h2>
+      </div>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-import { ref } from 'vue';
 export default {
-  props: {
-    modal: Object,
-  },
-  emits:['onClose'],
-  setup(props, { emit }) {
-    let dialog = ref(true);
-    const onClickClose = () => {
-      dialog.value = false;
-      emit('onClose', dialog.value);
-    }
-    return {
-      dialog,
-      onClickClose
-    };
-  },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+// 모달 컴포넌트 공통 사용
 @use '@/style/import-design' as *;
 .modal-header {
   @include flex-row; align-items: center; justify-content: space-between; padding:0 16px; height:50px; border-bottom:1px solid $gray_300;
@@ -45,5 +47,12 @@ export default {
     font-size:2.0rem;
   }
   .close-btn{font-size:2.6rem;}
+}
+.modal-content{
+  padding:16px;
+}
+.modal-footer{
+  @include flex-row;
+  > button{font-size:1.6rem; height:50px; background:$gray_300;}
 }
 </style>

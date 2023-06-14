@@ -14,14 +14,14 @@ app.use(express.urlencoded({extended:false}))
 
 // API 경로
 app.use('/api', indexRouter);
-app.use('/menu', menuRouter);
+app.use('/api/menu', menuRouter);
 
 // 몽고DB
 mongoose.set("strictQuery", false)
 mongoose.connect(uri).then(() => {
   console.log('connected to MongoDB');
-  app.listen(9000, () => {
-    console.log('Node API app is running on port 9000');
+  app.listen(8000, () => {
+    console.log('Node API app is running on port 8000');
   })
 }).catch((error) => {
   console.log('error >>', error);

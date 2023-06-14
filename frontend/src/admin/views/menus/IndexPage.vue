@@ -14,7 +14,28 @@
           </div>
         </div>
         <div class="product">
-          <div class="product-list grid_4" v-for="list in menuList" :key="list">
+          <v-row no-gutters>
+            <v-col cols="3" v-for="list in menuList" :key="list" class="product-list">
+              <div class="p-area">
+                <div class="p-image">
+                  <img :src="`${list.image}`">
+                </div>
+                <div class="p-detail">
+                  <div class="p-info">
+                    <h4>{{ list.name }}</h4>
+                    <p class="p-comment">{{ list.description }}</p>
+                    <p class="categore">{{ list.categore }}</p>
+                    <p class="sales-use"><span class="use">{{ list.price }}</span>원</p>
+                  </div>
+                </div>
+                <div class="p-button">
+                  <button class="delete-btn btn">삭제</button>
+                  <button class="modify-btn btn">수정</button>
+                </div>
+              </div>
+            </v-col>
+          </v-row>
+          <!-- <div class="product-list grid_4" v-for="list in menuList" :key="list">
             <div class="p-area">
               <div class="p-image">
                 <img :src="`${list.image}`">
@@ -32,17 +53,20 @@
               <button class="delete-btn btn">삭제</button>
               <button class="modify-btn btn">수정</button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
-    <add-menu-view v-if="addMenuModal == true" @addMenuClose="addMenuModal = false"></add-menu-view>
+    <add-menu-view
+    :addMenuModal = addMenuModal
+      v-if="addMenuModal == true"
+      @addMenuClose="addMenuModal = false"></add-menu-view>
   </div>
 </template>
 
 <script>
 import AddMenuView from './AddMenuView.vue';
-import axios from 'axios';
+import api from '@/api/api'
 import { ref, onBeforeMount, computed } from 'vue';
 export default {
   components: {
@@ -55,14 +79,15 @@ export default {
       addMenuModal.value = true;
     };
     const getMenuData = async () => {
-      await axios.get('http://localhost:9000/menu').then(response => {
-        const responseData = response.data;
-        responseData.forEach(data => {
-          const price = data.price.toLocaleString('ko-KR');
-          data.price = price;
-          menuList.value.push(data);
-        })
+      await api.menus.list().then(response => {
+          const responseData = response.data;
+          responseData.forEach(data => {
+            const price = data.price.toLocaleString('ko-KR');
+            data.price = price;
+            menuList.value.push(data);
+          })
       })
+
     }
     onBeforeMount(() => {
       getMenuData();
@@ -84,15 +109,25 @@ export default {
   .product{
     @include flex-row; width:100%; flex-wrap: wrap;
     .product-list{
-      border:1px solid $gray-400; border-radius:8px; margin:0 12px 24px 12px; padding:16px; @include flex-col; background:$white;
+      @include flex-col;
+      // &:nth-child(4n+1){
+      //   margin-left:0;
+      // }
+      // &:nth-child(4n){
+      //   margin-right:0;
+      // }
       &:nth-child(4n+1){
-        margin-left:0;
+        .p-area{
+          margin-left:0;
+        }
       }
       &:nth-child(4n){
-        margin-right:0;
+        .p-area{
+          margin-right:0;
+        }
       }
       .p-area{
-        @include flex-row; align-items: center;
+        @include flex-row; align-items: center;  background:$white; border:1px solid $gray-400; border-radius:8px; padding:16px; margin:0 16px 16px 0; position:relative;
         .p-image{
           @include flex-center; border-radius:8px; overflow:hidden; width:100px; height:100px; flex:0 0 auto;
           > img{width:100%;}
@@ -114,9 +149,12 @@ export default {
             &.full-view-page{
               width:100%;
             }
-            button{
-              font-size:1.4rem; border:1px solid $gray; padding:0 16px; border-radius:4px;
-            }
+          }
+        }
+        .p-button{
+          position:absolute; right:16px; bottom:16px;
+          button{
+            font-size:1.4rem; border:1px solid $gray; padding:0 16px; border-radius:4px; margin:0 4px;
           }
         }
       }
