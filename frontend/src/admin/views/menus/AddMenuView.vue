@@ -41,7 +41,7 @@
             density="compact"
             type="number"
             label="가격입력"
-            :rules="[() => !!form.price || '가격을 입력 해주세요.']"
+            :rules="[() => !!form.price || '가격을 입력하세요.']"
             required>
           </v-text-field>
         </div>
@@ -54,7 +54,7 @@
               density="compact"
               type="text"
               label="카테고리"
-              :rules="[() => !!form.categore || '카테고리를 입력 해주세요.']"
+              :rules="[() => !!form.categore || '카테고리를 입력하세요.']"
               required>
             </v-text-field>
         </div>
@@ -70,8 +70,8 @@
       </v-form>
     </template>
     <template #modalFooter>
-        <button class="grid_2">취소</button>
-        <button class="grid_2"  @click.prevent="onSubmit(form)">저장</button>
+        <!-- <button class="grid_2">취소</button> -->
+        <button class="grid_1"  @click.prevent="onSubmit(form)">저장</button>
     </template>
   </modal>
 </template>

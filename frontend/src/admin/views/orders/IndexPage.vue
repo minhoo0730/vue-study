@@ -49,5 +49,38 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/admin/views/order.css';
+// @import '@/style/admin/views/order.css';
+@use '@/style/import-design' as *;
+.inquiry-result{
+  .order-top{
+    display:flex; justify-content:space-between; align-items:flex-end;margin:16px 0 12px 0;
+    .add-btn{
+      display:flex; background:#648fdb; color:$white; border:none; padding:0 10px;
+    }
+  }
+  .day-result{
+    margin:16px 0; border:1px solid $gray_300; border-radius:8px;
+    > table{
+      width:100%; text-align:left; background:$white;
+      thead th{
+        color:$black; background:$gray_100; padding:10px 16px; border-bottom:1px solid $gray_300;
+      }
+      tbody tr{
+        border:1px solid $gray_300;
+        &:last-child{border:none;}
+        td{
+          padding:10px 16px; font-weight:400;
+          .detail-btn{
+            background:$green_100; border:1px solid $green_300; padding:8px 4px; border-radius:8px; font-size:1.4rem; color:$green_600; font-weight:600;
+            > i{
+              margin:0 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
 </style>

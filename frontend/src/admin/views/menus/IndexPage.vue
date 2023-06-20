@@ -78,16 +78,15 @@ export default {
     const onClickAddMenu = () => {
       addMenuModal.value = true;
     };
-    const getMenuData = async () => {
-      await api.menus.list().then(response => {
-          const responseData = response.data;
-          responseData.forEach(data => {
-            const price = data.price.toLocaleString('ko-KR');
-            data.price = price;
-            menuList.value.push(data);
-          })
+    const getMenuData = () => {
+      api.menus.list().then(response => {
+        const responseData = response.data;
+        responseData.forEach(data => {
+          const price = data.price.toLocaleString('ko-KR');
+          data.price = price;
+          menuList.value.push(data);
+        })
       })
-
     }
     onBeforeMount(() => {
       getMenuData();

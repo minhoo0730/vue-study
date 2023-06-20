@@ -9,7 +9,7 @@
         <slot name="modalHeader"></slot>
       </div>
       <div class="modal-header" v-else>
-        <h2 style="font-size:2.0rem; color:red; text-align:center; width:100%;">
+        <h2 style="font-size:1.6rem; color:red; text-align:center; width:100%;">
           #Header 폴백(이 메시지가 보이면 부모 컴포넌트 모달에서 #modalHeader로 슬롯네임드를 지정하세요.)
         </h2>
       </div>
@@ -17,7 +17,7 @@
         <slot name="modalContent"></slot>
       </div>
       <div class="modal-content" v-else>
-        <h2 style="font-size:2.0rem; color:red; text-align:center; width:100%;">
+        <h2 style="font-size:1.6rem; color:red; text-align:center; width:100%;">
           #Footer 폴백(이 메시지가 보이면 부모 컴포넌트 모달에서 #modalContent로 슬롯네임드를 지정하세요.)
         </h2>
       </div>
@@ -25,7 +25,7 @@
         <slot name="modalFooter"></slot>
       </div>
       <div class="modal-footer" v-else>
-        <h2 style="font-size:2.0rem; color:red; text-align:center; width:100%;">
+        <h2 style="font-size:1.6rem; color:red; text-align:center; width:100%;">
           #Footer 폴백(이 메시지가 보이면 부모 컴포넌트 모달에서 #modalFooter로 슬롯네임드를 지정하세요.)
         </h2>
       </div>
@@ -34,7 +34,14 @@
 </template>
 
 <script>
+import {ref} from 'vue';
 export default {
+  setup(){
+    const scopedSlots = ref('자식 컴포넌트 메시지')
+    return{
+      scopedSlots
+    }
+  },
 };
 </script>
 

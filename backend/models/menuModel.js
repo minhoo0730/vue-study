@@ -7,15 +7,15 @@ const menuSchema = mongoose.Schema(
     // },
     name:{
       type:String,
-      required : [true, "Please enter a Menu name"]
+      required : [true, "메뉴 이름을 입력하세요."]
     },
     description:{
       type: String,
-      required: [true, "Please enter a Menu description"]
+      required: [true, "메뉴 설명을 입력하세요."]
     },
     categore:{
       type: String,
-      required: [true, "Please enter a Menu categore"]
+      required: [true, "카테고리를 입력하세요."]
     },
     // quantity:{
     //   type:Number,
@@ -24,7 +24,7 @@ const menuSchema = mongoose.Schema(
     // },
     price:{
       type:Number,
-      required:true,
+      required:[true, "가격을 입력하세요."],
     },
     image:{
       type:String,

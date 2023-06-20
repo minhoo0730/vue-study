@@ -9,19 +9,22 @@
             </v-col>
             <v-col cols="auto" style="padding:0;">
               <ul class="v-row v-row--no-gutters">
-                <li style="color:#fff;" class="mr-3"><button>세트메뉴</button></li>
-                <li style="color:#fff;" class="mr-3"><button>철판메뉴</button></li>
+                <li style="color:#fff;" class="mr-3"><button>추천메뉴</button></li>
+                <li style="color:#fff;" class="mr-3"><button>커피</button></li>
+                <li style="color:#fff;" class="mr-3"><button>티</button></li>
+                <li style="color:#fff;" class="mr-3"><button>음료</button></li>
+                <!-- <li style="color:#fff;" class="mr-3"><button>철판메뉴</button></li>
                 <li style="color:#fff;" class="mr-3"><button>우동메뉴</button></li>
                 <li style="color:#fff;" class="mr-3"><button>사이드메뉴</button></li>
-                <li style="color:#fff;"><button>음료</button></li>
+                <li style="color:#fff;"><button>음료</button></li> -->
               </ul>
             </v-col>
           </div>
         </v-row>
-        <v-row no-gutters class="px-8 pt-8 pb-8 overflow-y-auto" style="height:calc(100vh - 60px); background:#eee;">
+        <v-row no-gutters class="px-8 pt-8 pb-8 overflow-y-auto" style="height:calc(100vh - 60px); background:#eee; align-items: flex-start">
           <v-row>
             <v-col cols="3"
-              v-for="(list, idx) in 16"
+              v-for="(list, idx) in menuList"
               :key="list"
               @click.prevent="onProductModal()"
             >
@@ -33,8 +36,10 @@
                   <img style="width:100%;" src="https://picsum.photos/id/429/4128/2322" />
                 </div>
                 <div class="menu-info" style="padding:10px;">
-                  <p class="menu-name">메뉴{{ idx + 1 }}</p>
-                  <p class="use"><b>20,000</b>원</p>
+                  <p class="menu-name">{{ list.name }}<br>
+                    <span>{{ list.description }}</span>
+                  </p>
+                  <p class="use"><b>{{ list .price}}</b>원</p>
                 </div>
               </v-card>
             </v-col>
@@ -98,7 +103,8 @@
 <script>
 import orderChooseView from './orderChooseView.vue';
 import productView from './productView.vue';
-import { ref } from 'vue';
+import api from '@/api/api'
+import { onBeforeMount, ref } from 'vue';
 export default {
   components: {
     orderChooseView,
@@ -108,6 +114,7 @@ export default {
     let chooseModal = ref(false);
     let productModal = ref(false);
     let countInquiry = ref(1);
+    const menuList = ref([]);
     const onChooseModalOpen = () => {
       chooseModal.value = true;
     };
@@ -127,16 +134,31 @@ export default {
     const addOrder = () => {
       productModal.value = false;
     };
+    const getMenuList = () => {
+      api.menus.list().then(response => {
+        const responseData = response.data;
+        responseData.forEach(data => {
+          const price = data.price.toLocaleString('ko-KR');
+          data.price = price;
+          menuList.value.push(data);
+        })
+      })
+    }
+    onBeforeMount(() => {
+      getMenuList();
+    })
     return {
       chooseModal,
       productModal,
       countInquiry,
+      menuList,
       onChooseModalOpen,
       onChooseModalClose,
       onProductModal,
       onProductModalClose,
       openOrderView,
       addOrder,
+      getMenuList
     };
   },
 };

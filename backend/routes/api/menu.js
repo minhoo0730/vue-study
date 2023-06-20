@@ -1,12 +1,14 @@
 // const app = express();
 const express = require('express');
 const menuModel = require("../../models/menuModel")
+const multer = require('multer');
+const upload = multer({dest:'uploads/'})
 const router = express.Router();
 
 // 메뉴 조회
 router.get('/', async (req, res) => {
   try {
-    const menu = await menuModel.find({});
+    const menu = await menuModel.find();
     res.status(200).json(menu);
   } catch (error) {
     res.status(500).json({ message: error.message })

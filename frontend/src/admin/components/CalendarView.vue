@@ -162,5 +162,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// @import '@/style/admin/components/CalendarView.scss';
+@use '@/style/import-design' as *;
+.calendar{
+  border:1px solid $gray_300; border-radius:8px; background:$white;
+  > div{
+    display:grid; grid-template-columns: repeat(7, 1fr); border-bottom:1px solid $gray_300; height:110px;
+    &:last-child{
+      border:none;
+    }
+    > div{
+      text-align:center; border-right:1px solid $gray_200; height:100%; padding:12px; position: relative;
+      time{
+        border-radius:50px; width:26px; height:26px; text-align:center; @include flex-center; padding-right:4px; position:absolute; left:12px; top:12px;
+      }
+    }
+    .day-date{
+      text-align:left; font-weight:400; font-size:1.4rem; cursor:pointer; display:flex; color:$gray_600;
+      &:hover, &:focus{
+        background:$gray_100;
+      }
+      .sales-data{
+        width:100%; display:flex; justify-content: flex-end; align-items: flex-end; color:$black; font-weight:600;
+      }
+    }
+    .sat{
+      color:blue;
+    }
+    .sun{
+      color:red;
+    }
+    .disable-day{
+      background:rgba(107,114,128,0.1); color:rgb(107,114,128);
+    }
+    .today time{
+      color:$white; background:#4f46e5; font-weight:600; position:absolute;
+    }
+  }
+  .calendar-day{
+    height:40px; display:flex; justify-content: center; align-items:center; box-shadow:$shadow_black;
+    .day-name{
+      font-weight:600; padding:0 12px; text-align:center; border-right:1px solid $gray_200; width:100%;
+      &:last-child{
+        border-right:none;
+      }
+    }
+  }
+}
+
+
 </style>
