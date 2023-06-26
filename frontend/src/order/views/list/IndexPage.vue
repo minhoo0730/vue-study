@@ -24,10 +24,7 @@
         <v-row no-gutters class="px-8 pt-8 pb-8 overflow-y-auto" style="height:calc(100vh - 60px); background:#eee; align-items: flex-start">
           <v-row>
             <v-col cols="3"
-              v-for="(list, idx) in menuList"
-              :key="list"
-              @click.prevent="onProductModal()"
-            >
+              v-for="(list, idx) in menuList" :key="list" @click.prevent="onProductModal(list)">
               <v-card
                 style="cursor:pointer; border:1px solid #fff; background:#fff;"
                 variant="outlined"
@@ -39,7 +36,7 @@
                   <p class="menu-name">{{ list.name }}<br>
                     <span>{{ list.description }}</span>
                   </p>
-                  <p class="use"><b>{{ list .price}}</b>원</p>
+                  <p class="use"><b>{{ priceToString(list.price) }}</b>원</p>
                 </div>
               </v-card>
             </v-col>
@@ -53,17 +50,17 @@
           </div>
           <div class="order-items overflow-auto" style="height:calc(100vh - 200px); padding:0 16px;">
             <ul>
-              <li v-for="orderList in 16" :key="orderList" class="py-2" style="border-bottom:1px solid #e1e1e1;">
+              <li v-for="(menu, mIdx) in addMenuList" :key="mIdx" class="py-2" style="border-bottom:1px solid #e1e1e1;">
                 <div class="d-flex justify-space-between mb-3" style="">
-                  <p style="font-size:1.6rem;">오더리스트{{ orderList }}</p>
+                  <p style="font-size:1.6rem;"> {{ menu.name }}</p>
                   <div class="">
-                    <button class="btn minus-btn" @click="countInquiry--" :disabled="countInquiry == 1">-</button>
-                    <input type="number" min="1" class="text-center" style="width:50px;" v-model.number="countInquiry" readonly/>
-                    <button class="btn plus-btn" @click="countInquiry++">+</button>
+                    <button class="btn minus-btn" @click="onMinusInquiry(menu)" :disabled="menu.inQuiry == 1">-</button>
+                    <input type="number" min="1" class="text-center" style="width:50px;" v-model.number="menu.inQuiry" readonly/>
+                    <button class="btn plus-btn" @click="onPlusInquiry(menu)">+</button>
                   </div>
                 </div>
                 <div class="d-flex justify-space-between">
-                  <span style="font-size:2.0rem;"><b>30,000</b>원</span>
+                  <span style="font-size:2.0rem;"><b>{{ priceToString(menu.addPrice) }}</b>원</span>
                   <button>삭제</button>
                 </div>
               </li>
@@ -72,15 +69,15 @@
           <div class="d-flex flex-column justify-space-between" style="height:140px; border-top:1px solid #e9e9e9;">
             <div class="pa-4">
               <p class="mb-2" style="font-size:2.0rem;">
-                주문수량<span><b>10</b></span
+                주문수량<span><b>{{ totalMenuCounting }}</b></span
                 >개
               </p>
               <p style="font-size:2.0rem;">
                 합계
-                <span><b>300,000</b>원</span>
+                <span><b>{{ priceToString(totalMenuPrice) }}</b>원</span>
               </p>
             </div>
-            <button class="w-100 text-center bg-red-accent-3" style="height:50px; color:#fff;" @click.prevent="onChooseModalOpen()">
+            <button class="w-100 text-center bg-red-accent-3" style="height:50px; color:#fff;" @click.prevent="onChooseModalOpen">
               주문하기
             </button>
           </div>
@@ -93,8 +90,9 @@
     ></order-choose-view>
     <product-view
       v-if="productModal == true"
+      :selectMenuView="selectMenuView"
       @openOrderView="openOrderView()"
-      @addOrder="addOrder()"
+      @add-order="addOrder"
       @closePop="onProductModalClose()"
     ></product-view>
   </v-layout>
@@ -104,61 +102,125 @@
 import orderChooseView from './orderChooseView.vue';
 import productView from './productView.vue';
 import api from '@/api/api'
-import { onBeforeMount, ref } from 'vue';
+import { onBeforeMount, ref, computed, watch } from 'vue';
 export default {
   components: {
     orderChooseView,
     productView,
   },
   setup() {
-    let chooseModal = ref(false);
-    let productModal = ref(false);
-    let countInquiry = ref(1);
+    const chooseModal = ref(false);
+    const productModal = ref(false);
     const menuList = ref([]);
+    const selectMenuView = ref({});
+    const addMenuList = ref([]);
+    const totalMenuCounting = ref(0);
+    const totalMenuPrice = ref(0);
+    watch(() => addMenuList.value,
+      (list) => {
+        if(list.length > 0){
+          let inQuirySum = 0;
+          let priceSum = 0;
+          list.forEach(data => {
+            inQuirySum = inQuirySum + data.inQuiry;
+            priceSum = priceSum + data.addPrice;
+            totalMenuCounting.value = inQuirySum;
+            totalMenuPrice.value = priceSum;
+          })
+        }
+      },
+      { deep: true }
+    )
     const onChooseModalOpen = () => {
       chooseModal.value = true;
     };
     const onChooseModalClose = () => {
       chooseModal.value = false;
     };
-    const onProductModal = () => {
+    const onProductModal = (menu) => {
+      selectMenuView.value = menu;
       productModal.value = true;
     };
     const onProductModalClose = () => {
+      selectMenuView.value = {};
       productModal.value = false;
     };
     const openOrderView = () => {
       chooseModal.value = true;
-      productModal.value = false;
+      onProductModalClose();
     };
-    const addOrder = () => {
-      productModal.value = false;
+    const addOrder = (menu) => {
+      let defaultinQuiry = {};
+      defaultinQuiry.addPrice = menu.price;
+      menu.addPrice = defaultinQuiry.addPrice;
+      if(addMenuList.value.length > 0){
+        if(addMenuList.value.includes(menu) == true){
+          menu.inQuiry++;
+          menu.addPrice = menu.addPrice * menu.inQuiry;
+        } else {
+          addMenuList.value.push(menu);
+        }
+        onProductModalClose();
+      } else {
+        addMenuList.value.push(menu);
+        onProductModalClose();
+      }
     };
     const getMenuList = () => {
       api.menus.list().then(response => {
         const responseData = response.data;
         responseData.forEach(data => {
-          const price = data.price.toLocaleString('ko-KR');
-          data.price = price;
+          // const price = data.price.toLocaleString('ko-KR');
+          // data.price = price;
           menuList.value.push(data);
         })
       })
     }
+    const onMinusInquiry = (selectMenu) => {
+      selectMenu.inQuiry--;
+      selectMenu.addPrice = selectMenu.price * selectMenu.inQuiry;
+    }
+    const onPlusInquiry = (selectMenu) => {
+      selectMenu.inQuiry++;
+      selectMenu.addPrice = selectMenu.price * selectMenu.inQuiry;
+    }
+    const priceToString = (price) => {
+      return price.toLocaleString('ko-KR');
+    }
+    // let totalMenuCounting = computed(() => {
+    //   if(addMenuList.length > 0){
+    //     let sum = 0;
+    //     addMenuList.forEach(data => {
+    //       data.inQuiry;
+    //       sum = sum + data.inQuiry;
+    //       return sum;
+    //     })
+    //   } else {
+    //     let sum = 0;
+    //     return sum;
+    //   }
+    // })
     onBeforeMount(() => {
       getMenuList();
     })
     return {
       chooseModal,
       productModal,
-      countInquiry,
       menuList,
+      selectMenuView,
+      addMenuList,
+      totalMenuCounting,
+      totalMenuPrice,
       onChooseModalOpen,
       onChooseModalClose,
       onProductModal,
       onProductModalClose,
       openOrderView,
       addOrder,
-      getMenuList
+      getMenuList,
+      onMinusInquiry,
+      onPlusInquiry,
+      priceToString,
     };
   },
 };

@@ -26,6 +26,10 @@ const menuSchema = mongoose.Schema(
       type:Number,
       required:[true, "가격을 입력하세요."],
     },
+    inQuiry:{
+      type:Number,
+      default:1,
+    },
     image:{
       type:String,
       required:false,
