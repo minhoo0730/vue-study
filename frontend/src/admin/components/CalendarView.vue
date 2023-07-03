@@ -26,13 +26,14 @@
               day === today && month === currentMonth && year === currentYear,
           },
           {
-            today:
+            'today':
               year === currentYear && month === currentMonth && day === today,
           },
         ]"
         class="day-date"
       >
-        <time :data-time="`${year}-${month}-${day}`">{{ day }}</time>
+        <time>{{ day }}</time>
+        <!-- <time :data-time="`${year}-${month}-${day}`">{{ day }}</time> -->
         <div class="sales-data">
           <p class="sales-use"><span class="use">40,000</span>원</p>
         </div>
@@ -193,6 +194,11 @@ export default {
     }
     .disable-day{
       background:rgba(107,114,128,0.1); color:rgb(107,114,128);
+      &.today time{
+        background:unset;
+        color:rgb(107, 114, 128);
+        font-weight:400;
+      }
     }
     .today time{
       color:$white; background:#4f46e5; font-weight:600; position:absolute;

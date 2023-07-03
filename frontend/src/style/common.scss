@@ -38,3 +38,26 @@
     }
   }
 }
+
+.btn{
+  &.order-btn{
+    width:100%;
+    background:#FF1744;
+    text-align:center;
+    height: 54px;
+    color: #fff;
+    &:disabled{
+      background:$gray_300;
+      color:$gray_600;
+    }
+  }
+  &.plus-btn, &.minus-btn{
+    width:30px; height:30px;
+    font-size:2.0rem;
+    font-weight:600;
+    border:1px solid $gray_300;
+    &:disabled{
+      color:$gray_600;
+    }
+  }
+}

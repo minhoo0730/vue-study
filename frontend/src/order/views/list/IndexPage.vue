@@ -51,17 +51,17 @@
           <div class="order-items overflow-auto" style="height:calc(100vh - 200px); padding:0 16px;">
             <ul>
               <li v-for="(menu, mIdx) in addMenuList" :key="mIdx" class="py-2" style="border-bottom:1px solid #e1e1e1;">
-                <div class="d-flex justify-space-between mb-3" style="">
-                  <p style="font-size:1.6rem;"> {{ menu.name }}</p>
+                <div class="d-flex justify-space-between align-center mb-2" style="">
+                  <p> {{ menu.name }}</p>
                   <div class="">
                     <button class="btn minus-btn" @click="onMinusInquiry(menu)" :disabled="menu.inQuiry == 1">-</button>
-                    <input type="number" min="1" class="text-center" style="width:50px;" v-model.number="menu.inQuiry" readonly/>
+                    <input type="number" min="1" class="text-center" style="width:36px;" v-model.number="menu.inQuiry" readonly/>
                     <button class="btn plus-btn" @click="onPlusInquiry(menu)">+</button>
                   </div>
                 </div>
                 <div class="d-flex justify-space-between">
-                  <span style="font-size:2.0rem;"><b>{{ priceToString(menu.addPrice) }}</b>원</span>
-                  <button>삭제</button>
+                  <p><b class="mr-1">{{ priceToString(menu.addPrice) }}</b>원</p>
+                  <button @click.prevent="onMenuDelete(menu)">삭제</button>
                 </div>
               </li>
             </ul>
@@ -77,7 +77,7 @@
                 <span><b>{{ priceToString(totalMenuPrice) }}</b>원</span>
               </p>
             </div>
-            <button class="w-100 text-center bg-red-accent-3" style="height:50px; color:#fff;" @click.prevent="onChooseModalOpen">
+            <button class="btn order-btn" style="" @click.prevent="onChooseModalOpen" :disabled="addMenuList.length == 0">
               주문하기
             </button>
           </div>
@@ -187,19 +187,14 @@ export default {
     const priceToString = (price) => {
       return price.toLocaleString('ko-KR');
     }
-    // let totalMenuCounting = computed(() => {
-    //   if(addMenuList.length > 0){
-    //     let sum = 0;
-    //     addMenuList.forEach(data => {
-    //       data.inQuiry;
-    //       sum = sum + data.inQuiry;
-    //       return sum;
-    //     })
-    //   } else {
-    //     let sum = 0;
-    //     return sum;
-    //   }
-    // })
+    const onMenuDelete = (menu) => {
+      for(let i=0; i < addMenuList.value.length; i++){
+        if(addMenuList.value[i]._id == menu._id){
+          addMenuList.value.splice(i, 1);
+          i--;
+        }
+      }
+    }
     onBeforeMount(() => {
       getMenuList();
     })
@@ -221,6 +216,7 @@ export default {
       onMinusInquiry,
       onPlusInquiry,
       priceToString,
+      onMenuDelete,
     };
   },
 };
