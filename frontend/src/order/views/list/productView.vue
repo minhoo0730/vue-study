@@ -27,38 +27,27 @@
   </modal>
 </template>
 
-<script>
-import Modal from '@/order/components/Modal.vue';
-import RadioForm from '@/order/components/RadioForm.vue';
-import { ref } from 'vue';
+<script setup>
+  import Modal from '@/order/components/Modal.vue';
+  import RadioForm from '@/order/components/RadioForm.vue';
+  import { ref } from 'vue';
 
-export default {
-  props:{
+  const props = defineProps({
     selectMenuView:Object
-  },
-  emits:['closePop','addOrder'],
-  components: {
-    Modal,
-    RadioForm,
-  },
-  setup(props, { emit }) {
-    const selectMenus = props.selectMenuView;
-    const title = ref(selectMenus.name);
-    const modalName = ref('orderView');
-    const onClosePop = () => {
-      emit('closePop');
-    }
-    const onAddOrder = () => {
-      emit('addOrder', selectMenus);
-    }
-    return {
-      title,
-      modalName,
-      onClosePop,
-      onAddOrder
-    };
-  },
-};
+  })
+const emit = defineEmits(['closePop','addOrder'])
+  const selectMenus = props.selectMenuView;
+  const title = ref(selectMenus.name);
+  const modalName = ref('orderView');
+  const onClosePop = () => {
+    emit('closePop');
+  }
+  const onAddOrder = () => {
+    emit('addOrder', selectMenus);
+  }
+  defineExpose({
+    modalName
+  })
 </script>
 
 <style lang="scss" scoped>
